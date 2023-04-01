@@ -1,3 +1,4 @@
+import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/routes.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,20 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
 
+        fontFamily: "PlayfairDisplay",
+        textTheme: const TextTheme(
+            headline1: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: AppColor.black),
+            bodyText1: TextStyle(
+                height: 2,
+                color: AppColor.grey,
+                fontWeight: FontWeight.bold,
+                fontSize: 17)),
         primarySwatch: Colors.blue,
       ),
-      home:const onBoarding(),
+      home: const onBoarding(),
       routes: routes,
     );
   }
