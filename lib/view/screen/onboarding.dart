@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_php_mysql/controller/onboarding_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/onboarding/custombutton.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/onboarding/customslider.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/onboarding/dotcontroller.dart';
@@ -13,10 +14,11 @@ class onBoarding extends StatelessWidget {
     Get.put(OnBoardingControllerImp());
     
     return Scaffold(
+      backgroundColor: AppColor.backgroundcolor,
         body: SafeArea(
       child: Column(children: [
         const Expanded(
-          flex: 3,
+          flex: 4,
           child: CustomSliderOnBoarding(),
         ),
         Expanded(

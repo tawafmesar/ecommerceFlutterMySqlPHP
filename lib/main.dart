@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                 height: 2,
                 color: AppColor.grey,
                 fontWeight: FontWeight.bold,
-                fontSize: 17)),
+                fontSize: 14)),
         primarySwatch: Colors.blue,
       ),
       home: const onBoarding(),

@@ -21,11 +21,11 @@ List<OnBoardingModel> onBoardingList = [
           "We Have a 100k Product , Choose \n Your Product From Our E-commerce shop",
       image: AppImageAsset.onBoardingImageThree),
   
-  OnBoardingModel(
-      title: "Fast Delivery ",
-      body:
-          "We Have a 100k Product , Choose \n Your Product From Our E-commerce shop",
-      image: AppImageAsset.onBoardingImageFour),
+  // OnBoardingModel(
+  //     title: "Fast Delivery ",
+  //     body:
+  //         "We Have a 100k Product , Choose \n Your Product From Our E-commerce shop",
+  //     image: AppImageAsset.onBoardingImageFour),
 
 
 ];
