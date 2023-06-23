@@ -5,10 +5,10 @@ class MyTranslation extends Translations{
   // TODO: implement keys
   Map<String, Map<String, String>> get keys => {
     "ar" : {
-      "1" : "مرحب"
+      "1" : "اختر اللغة"
     },
     "en" : {
-      "1" : "hello"
+      "1" : "Choose Language"
 
     }
   };
