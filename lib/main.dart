@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
+import 'package:ecommerce_flutter_php_mysql/core/localization/changelocal.dart';
 import 'package:ecommerce_flutter_php_mysql/core/localization/translation.dart';
 import 'package:ecommerce_flutter_php_mysql/core/services/services.dart';
 import 'package:ecommerce_flutter_php_mysql/routes.dart';
@@ -10,7 +11,7 @@ import 'package:get/get.dart';
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  await initialServices;
+  await initialServices();
   runApp(const MyApp());
 }
 
@@ -19,12 +20,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    LocaleController controller =   Get.put(LocaleController()) ;
+
     return GetMaterialApp(
 
       translations: MyTranslation(),
 
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      locale: controller.language,
       theme: ThemeData(
 
         fontFamily: "PlayfairDisplay",
