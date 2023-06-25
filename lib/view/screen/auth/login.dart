@@ -1,5 +1,8 @@
 
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
+import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextbodyauth.dart';
+import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextformauth.dart';
+import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -16,33 +19,25 @@ class Login extends StatelessWidget {
           centerTitle: true,
             title: Text("Sign In",style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
-          padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 35),
+          padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: ListView(
-            children:  [
-             const SizedBox(height: 20,),
-              Text("Welcome Back ",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2,),
-              const SizedBox(height: 10,),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 25),
-                child: Text("Sign In With Your Email And Password Or Continue Social Media ",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1,),
+            children: const [
+              SizedBox(height: 20,),
+              CustomTextTitleAuth(text:"Welcome Back " ),
+               SizedBox(height: 10,),
+              CustomTextBodyAuth(text: "Sign In With Your Email And Password Or Continue Social Media "),
+               SizedBox(height: 55,),
+              CustomTextFormAuth(
+                hinttext: "Enter your email ",
+                iconData: Icons.email_outlined,
+                labeltext: "Email",
+                // mycontroller: ,
               ),
-              const SizedBox(height: 25,),
-              TextFormField(
-
-                decoration:  InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  contentPadding: EdgeInsets.symmetric(vertical: 5,horizontal: 30),
-                  suffixIcon: Icon(Icons.email_outlined),
-                  label: Text("Email"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30)
-                  )
-                ),
-
+               CustomTextFormAuth(
+                hinttext: "Enter your password ",
+                iconData: Icons.lock,
+                labeltext: "Password",
+                // mycontroller: ,
               )
             ],
           ),
