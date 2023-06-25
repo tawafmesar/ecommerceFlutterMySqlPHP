@@ -26,6 +26,16 @@ class Language extends GetView<LocaleController> {
               controller.changeLang("en");
               Get.toNamed(AppRoute.onBoarding);
             })
+
+
+
+
+
+
+
+
+
+
           ],
         ),
       ),
