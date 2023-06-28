@@ -25,51 +25,31 @@ class ForgetPassword extends StatelessWidget {
             backgroundColor: AppColor.backgroundcolor,
             elevation: 0.0,
             centerTitle: true,
-            title: Text("Sign Up",style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
+            title: Text("Forget Password",
+                style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: ListView(
             children:  [
-              const CustomTextTitleAuth(text:"Welcome Back " ),
+              const CustomTextTitleAuth(text:"Check Email" ),
               const SizedBox(height: 10,),
               const CustomTextBodyAuth(text: "Sign In With Your Email And Password Or Continue Social Media "),
               const SizedBox(height: 15,),
-              CustomTextFormAuth(
-                hinttext: "Enter your Username ",
-                iconData: Icons.person,
-                labeltext: "Username",
-              ),
+
               CustomTextFormAuth(
                 mycontroller: controller.email,
                 hinttext: "Enter your email ",
                 iconData: Icons.email_outlined,
                 labeltext: "Email",
               ),
-              CustomTextFormAuth(
-                hinttext: "Enter your phone ",
-                iconData: Icons.phone,
-                labeltext: "Phone",
-              ),
-              CustomTextFormAuth(
-                hinttext: "Enter your password ",
-                iconData: Icons.lock,
-                labeltext: "Password",
-              ),
-              const Text("Forget Password",
-                textAlign: TextAlign.end,
-              ),
+
+
               CustomButtonAuth(
-                text: "Sign Up",
+                text: "Check",
                 onPressed: (){},
               ),
               const SizedBox(height: 30,),
-              CustomTextSignUpOrSignIn(
-                  textone: " Have an account ?  ",
-                  texttwo: " Login ",
-                  onTap: () {
-                    // controller.goToLogin();
-                  }
-              )
+
             ],
           ),
         )
