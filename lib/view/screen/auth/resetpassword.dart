@@ -1,4 +1,5 @@
 
+import 'package:ecommerce_flutter_php_mysql/controller/auth/resetpassword_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/controller/auth/signup_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/custombuttonauth.dart';
@@ -18,34 +19,39 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ForgetPasswordControllerImp controller = Get.put(ForgetPasswordControllerImp());
+    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
 
     return Scaffold(
         appBar: AppBar(
             backgroundColor: AppColor.backgroundcolor,
             elevation: 0.0,
             centerTitle: true,
-            title: Text("Forget Password",
+            title: Text("Reset Password",
                 style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: ListView(
             children:  [
-              const CustomTextTitleAuth(text:"Check Email" ),
+              const CustomTextTitleAuth(text:"New Password" ),
               const SizedBox(height: 10,),
-              const CustomTextBodyAuth(text: "Sign In With Your Email And Password Or Continue Social Media "),
+              const CustomTextBodyAuth(text: "Please enter new password "),
               const SizedBox(height: 15,),
 
-              // CustomTextFormAuth(
-              //   mycontroller: controller.email,
-              //   hinttext: "Enter your email ",
-              //   iconData: Icons.email_outlined,
-              //   labeltext: "Email",
-              // ),
-
+              CustomTextFormAuth(
+                // mycontroller: controller.email,
+                hinttext: "Enter your password ",
+                iconData: Icons.lock,
+                labeltext: "Password",
+              ),
+              CustomTextFormAuth(
+                // mycontroller: controller.email,
+                hinttext: "Re Enter your email ",
+                iconData: Icons.lock,
+                labeltext: "Password",
+              ),
 
               CustomButtonAuth(
-                text: "Check",
+                text: "Save",
                 onPressed: (){},
               ),
               const SizedBox(height: 30,),
