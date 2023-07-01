@@ -59,7 +59,9 @@ class SignUp extends StatelessWidget {
 
               CustomButtonAuth(
                 text: "Sign Up",
-                onPressed: (){},
+                onPressed: (){
+                  controller.SignUp();
+                },
               ),
               const SizedBox(height: 30,),
               CustomTextSignUpOrSignIn(

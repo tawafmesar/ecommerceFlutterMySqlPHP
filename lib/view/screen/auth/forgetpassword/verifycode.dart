@@ -10,8 +10,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/forgetpassword_controller.dart';
-import '../../../controller/auth/signup_controller.dart';
+import '../../../../controller/auth/forgetpassword_controller.dart';
+import '../../../../controller/auth/signup_controller.dart';
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({super.key});

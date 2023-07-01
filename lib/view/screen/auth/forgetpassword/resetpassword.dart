@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/forgetpassword_controller.dart';
+import '../../../../controller/auth/forgetpassword_controller.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -52,7 +52,9 @@ class ResetPassword extends StatelessWidget {
 
               CustomButtonAuth(
                 text: "Save",
-                onPressed: (){},
+                onPressed: (){
+                  controller.goToSuccessResetPassword();
+                },
               ),
               const SizedBox(height: 30,),
 
