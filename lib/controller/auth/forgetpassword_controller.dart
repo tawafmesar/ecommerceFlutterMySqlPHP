@@ -19,7 +19,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
 
   @override
   goToVerfiyCode() {
-    Get.toNamed(AppRoute.verfiyCode);
+    Get.toNamed(AppRoute.verifyCode);
   }
 
 
