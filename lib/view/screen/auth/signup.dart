@@ -23,50 +23,66 @@ class SignUp extends StatelessWidget {
             backgroundColor: AppColor.backgroundcolor,
             elevation: 0.0,
             centerTitle: true,
-            title: Text("Sign Up",style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
+            title: Text("17".tr
+                //"Sign Up"
+                ,style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: ListView(
             children:  [
-              const CustomTextTitleAuth(text:"Welcome Back " ),
+               CustomTextTitleAuth(text:"10".tr
+              //"Welcome Back "
+              ),
               const SizedBox(height: 10,),
-              const CustomTextBodyAuth(text: "Sign In With Your Email And Password Or Continue Social Media "),
+               CustomTextBodyAuth(text: "24".tr //"Sign In With Your Email And Password Or Continue Social Media "
+              ),
               const SizedBox(height: 15,),
                CustomTextFormAuth(
                 mycontroller: controller.username,
-                hinttext: "Enter your Username ",
+                hinttext: "23".tr //"Enter your Username "
+                 ,
                 iconData: Icons.person,
-                labeltext: "Username",
+                labeltext:"20".tr
+                 //"Username"
               ),
                CustomTextFormAuth(
                  mycontroller: controller.email,
-                 hinttext: "Enter your email ",
+                 hinttext:"12".tr // "Enter your email "
+                 ,
                 iconData: Icons.email_outlined,
-                labeltext: "Email",
+                labeltext: "18".tr//"Email"
+                 ,
               ),
                CustomTextFormAuth(
                 mycontroller: controller.phone,
-                hinttext: "Enter your phone ",
+                hinttext: "22".tr //"Enter your phone "
+                 ,
                 iconData: Icons.phone,
-                labeltext: "Phone",
+                labeltext: "21".tr // "Phone"
+                 ,
               ),
                CustomTextFormAuth(
                 mycontroller: controller.password,
-                hinttext: "Enter your password ",
+                hinttext: "13".tr //"Enter your password "
+                 ,
                 iconData: Icons.lock,
-                labeltext: "Password",
+                labeltext: "19".tr // "Password"
+                 ,
               ),
 
               CustomButtonAuth(
-                text: "Sign Up",
+                text: "17".tr //"Sign Up"
+                ,
                 onPressed: (){
                   controller.SignUp();
                 },
               ),
               const SizedBox(height: 30,),
               CustomTextSignUpOrSignIn(
-                  textone: " Have an account ?  ",
-                  texttwo: " Login ",
+                  textone: "25".tr //" Have an account ?  "
+                  ,
+                  texttwo: "26".tr // " Login "
+                  ,
                   onTap: () {
                     controller.goToLogin();
                   }

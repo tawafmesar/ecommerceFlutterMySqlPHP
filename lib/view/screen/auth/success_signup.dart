@@ -1,5 +1,6 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../widget/auth/custombuttonauth.dart';
 
@@ -15,7 +16,8 @@ class SuccessSignUp extends StatelessWidget {
         centerTitle: true,
         title: Title(
           color: Colors.white,
-          child: Text("success ",
+          child: Text( "32".tr //"success "
+            ,
           style: Theme.of(context).textTheme.headline1!.copyWith(
             color: AppColor.grey
           ),),
@@ -35,10 +37,11 @@ class SuccessSignUp extends StatelessWidget {
             Text("...."),
             Text("...."),
             Spacer(),
-            Container(
+            SizedBox(
               width: double.infinity,
               child: CustomButtonAuth(
-                text: "Go to Login",
+                text:"31".tr //"Go to Login"
+                ,
                 onPressed: (){
                 //  controller.SignUp();
                 },

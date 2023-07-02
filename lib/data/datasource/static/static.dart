@@ -1,24 +1,23 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/imgaeasset.dart';
 import 'package:ecommerce_flutter_php_mysql/data/model/onboardingmodel.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 List<OnBoardingModel> onBoardingList = [
  
   OnBoardingModel(
-      title: "Choose Product",
-      body:
-          "We Have a 100k Product , Choose \n Your Product From Our \n E-commerce shop",
+      title: "2".tr,
+      body: "3".tr,
       image: AppImageAsset.onBoardingImageOne),
- 
+
+
   OnBoardingModel(
-      title: "Easy & Safe Payment",
-      body:
-          "We Have a 100k Product , Choose \n Your Product From Our E-commerce shop",
+      title: "4".tr,
+      body: "5".tr,
       image: AppImageAsset.onBoardingImageTwo),
  
   OnBoardingModel(
-      title: "Track Your Order",
-      body:
-          "We Have a 100k Product , Choose \n Your Product From Our E-commerce shop",
+      title: "6".tr,
+      body: "7".tr,
       image: AppImageAsset.onBoardingImageThree),
   
   // OnBoardingModel(

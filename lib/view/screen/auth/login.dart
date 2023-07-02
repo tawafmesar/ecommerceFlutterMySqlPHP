@@ -23,46 +23,61 @@ class Login extends StatelessWidget {
           backgroundColor: AppColor.backgroundcolor,
           elevation: 0.0,
           centerTitle: true,
-            title: Text("Login",style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
+            title: Text("9".tr
+                ,style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: ListView(
             children:  [
               const LogoAuth(),
-              const CustomTextTitleAuth(text:"Welcome Back " ),
+               CustomTextTitleAuth(text:
+              "10".tr
+              //"Welcome Back "
+              ),
               const SizedBox(height: 10,),
-              const CustomTextBodyAuth(text: "Login With Your Email And Password Or Continue Social Media "),
+               CustomTextBodyAuth(text: "11".tr
+               //"Login With Your Email And Password Or Continue Social Media "
+               ),
               const SizedBox(height: 15,),
                CustomTextFormAuth(
                 mycontroller: controller.email,
-                hinttext: "Enter your email ",
+                hinttext: "12".tr
+                //"Enter your email "
+                 ,
                 iconData: Icons.email_outlined,
-                labeltext: "Email",
+                labeltext: "18".tr,
                 // mycontroller: ,
               ),
                CustomTextFormAuth(
                 mycontroller: controller.password,
-                hinttext: "Enter your password ",
+                hinttext:"13".tr
+                //"Enter your password "
+                ,
                 iconData: Icons.lock,
-                labeltext: "Password",
+                labeltext: "19".tr,
               ),
-
               InkWell(
                 onTap: (){
                   controller.goToForgetPassword();
                 },
-                child: Text("Forget Password",
-                textAlign: TextAlign.end,
+                child: Text("14".tr
+                  //"Forget Password"
+                  ,
+                textAlign: TextAlign.right,
                 ),
               ),
               CustomButtonAuth(
-                text: "Login",
+                text: "15".tr,
                 onPressed: (){},
               ),
               const SizedBox(height: 30,),
               CustomTextSignUpOrSignIn(
-                textone: " Don't have an account ?  ",
-                texttwo: " Sign up",
+                textone: "16".tr
+                //" Don't have an account ?  "
+                  ,
+                texttwo: "17".tr
+                //" Sign up"
+                ,
                 onTap: () {
                   controller.goToSigUp();
                 }
@@ -70,7 +85,6 @@ class Login extends StatelessWidget {
             ],
           ),
         )
-
     );
   }
 }
