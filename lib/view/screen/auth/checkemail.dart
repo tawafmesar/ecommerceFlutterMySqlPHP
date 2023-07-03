@@ -35,6 +35,9 @@ class CheckEmail extends StatelessWidget {
               const SizedBox(height: 15,),
 
               CustomTextFormAuth(
+                valid: (val){
+
+                },
                 mycontroller: controller.email,
                 hinttext: "12".tr,
                 iconData: Icons.email_outlined,

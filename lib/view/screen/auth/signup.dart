@@ -38,6 +38,9 @@ class SignUp extends StatelessWidget {
               ),
               const SizedBox(height: 15,),
                CustomTextFormAuth(
+                 valid: (val){
+
+                 },
                 mycontroller: controller.username,
                 hinttext: "23".tr //"Enter your Username "
                  ,
@@ -46,6 +49,9 @@ class SignUp extends StatelessWidget {
                  //"Username"
               ),
                CustomTextFormAuth(
+                 valid: (val){
+
+                 },
                  mycontroller: controller.email,
                  hinttext:"12".tr // "Enter your email "
                  ,
@@ -54,6 +60,9 @@ class SignUp extends StatelessWidget {
                  ,
               ),
                CustomTextFormAuth(
+                 valid: (val){
+
+                 },
                 mycontroller: controller.phone,
                 hinttext: "22".tr //"Enter your phone "
                  ,
@@ -62,6 +71,9 @@ class SignUp extends StatelessWidget {
                  ,
               ),
                CustomTextFormAuth(
+                 valid: (val){
+
+                 },
                 mycontroller: controller.password,
                 hinttext: "13".tr //"Enter your password "
                  ,

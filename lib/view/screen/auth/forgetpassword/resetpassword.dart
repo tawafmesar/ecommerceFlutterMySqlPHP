@@ -42,6 +42,9 @@ class ResetPassword extends StatelessWidget {
               const SizedBox(height: 15,),
 
               CustomTextFormAuth(
+                valid: (val){
+
+                },
                 // mycontroller: controller.email,
                 hinttext: "13".tr
                 //"Enter your password "
@@ -50,6 +53,9 @@ class ResetPassword extends StatelessWidget {
                 labeltext: "19".tr,
               ),
               CustomTextFormAuth(
+                valid: (val){
+
+                },
                 // mycontroller: controller.email,
                 hinttext: "Re" + " " + "13".tr,
                 iconData: Icons.lock,
