@@ -10,7 +10,6 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/auth/verifycodesignup.da
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 
-import 'view/screen/auth/checkemail.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.login: (context) => const Login(),
@@ -19,7 +18,6 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.forgetPassword: (context) => const ForgetPassword(),
   AppRoute.verifyCode: (context) => const VerifyCode(),
   AppRoute.resetPassword: (context) => const ResetPassword(),
-  AppRoute.checkEmail: (context) => const CheckEmail(),
   AppRoute.successResetPassword: (context) => const SuccessResetPassword(),
   AppRoute.successSignUp: (context) => const SuccessSignUp(),
   AppRoute.verifyCodeSignUp: (context) => const VerifyCodeSignUp(),

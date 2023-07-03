@@ -6,8 +6,8 @@ abstract class LoginController extends GetxController{
   login();
   goToSigUp();
   goToForgetPassword();
-
 }
+
 class LoginControllerImp extends LoginController {
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
@@ -23,9 +23,7 @@ class LoginControllerImp extends LoginController {
       print(" valid");
     }else{
       print("not valid");
-
     }
-
   }
 
   @override
@@ -54,5 +52,4 @@ class LoginControllerImp extends LoginController {
     password.dispose();
     super.dispose();
   }
-
 }
