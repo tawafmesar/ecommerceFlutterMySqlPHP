@@ -29,36 +29,41 @@ class ForgetPassword extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
-          child: ListView(
-            children:  [
-               CustomTextTitleAuth(text:"27".tr ),
-              const SizedBox(height: 10,),
-               CustomTextBodyAuth(text: "29".tr
-              //"Please enter your email address to receive a verification code "
-              ),
-              const SizedBox(height: 15,),
+          child: Form(
+            key: controller.formstate,
+            child: ListView(
+              children:  [
+                 CustomTextTitleAuth(text:"27".tr ),
+                const SizedBox(height: 10,),
+                 CustomTextBodyAuth(text: "29".tr
+                //"Please enter your email address to receive a verification code "
+                ),
+                const SizedBox(height: 15,),
 
-              CustomTextFormAuth(
-                valid: (val){
+                CustomTextFormAuth(
 
-                },
-                mycontroller: controller.email,
-                hinttext: "12".tr
-                //"Enter your email "
-                ,
-                iconData: Icons.email_outlined,
-                labeltext: "18".tr,
-              ),
+                  keyboardType: TextInputType.emailAddress,
+                  valid: (val){
 
-              CustomButtonAuth(
-                text: "30".tr,
-                onPressed: (){
-                  controller.goToVerfiyCode();
-                },
-              ),
-              const SizedBox(height: 30,),
+                  },
+                  mycontroller: controller.email,
+                  hinttext: "12".tr
+                  //"Enter your email "
+                  ,
+                  iconData: Icons.email_outlined,
+                  labeltext: "18".tr,
+                ),
 
-            ],
+                CustomButtonAuth(
+                  text: "30".tr,
+                  onPressed: (){
+                    controller.goToVerfiyCode();
+                  },
+                ),
+                const SizedBox(height: 30,),
+
+              ],
+            ),
           ),
         )
 

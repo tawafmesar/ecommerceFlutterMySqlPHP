@@ -8,6 +8,8 @@ abstract class SignUpController extends GetxController{
 }
 class SignUpControllerImp extends SignUpController {
 
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController phone;
@@ -16,14 +18,21 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   SignUp() {
-
-    Get.offNamed(AppRoute.verifyCodeSignUp);
+    if (formstate.currentState!.validate()) {
+      Get.offNamed(AppRoute.verifyCodeSignUp);
+   //   Get.delete<SignUpControllerImp>();
+    } else {
+      print("Not Valid");
+    }
 
   }
 
   @override
   goToLogin() {
+    //Get.delete<SignUpControllerImp>();
+
     Get.offNamed(AppRoute.login);
+
   }
 
 

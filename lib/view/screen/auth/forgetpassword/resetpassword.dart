@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/functions/validinput.dart';
+
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -25,46 +27,51 @@ class ResetPassword extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body:Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
-          child: ListView(
-            children:  [
-               CustomTextTitleAuth(text:"35".tr
-            //  "New Password"
-              ),
-              const SizedBox(height: 10,),
-               CustomTextBodyAuth(text: "34".tr
-             //  "Please enter new password "
-               ),
-              const SizedBox(height: 15,),
+          child: Form(
+            key: controller.formstate,
+            child: ListView(
+              children:  [
+                 CustomTextTitleAuth(text:"35".tr
+              //  "New Password"
+                ),
+                const SizedBox(height: 10,),
+                 CustomTextBodyAuth(text: "34".tr
+               //  "Please enter new password "
+                 ),
+                const SizedBox(height: 15,),
 
-              CustomTextFormAuth(
-                valid: (val){
+                CustomTextFormAuth(
+                  keyboardType: TextInputType.visiblePassword,
+                  valid: (val){
+                    return validInput(val!, 3, 40, "password");
+                  },
+                  // mycontroller: controller.email,
+                  hinttext: "13".tr
+                  //"Enter your password "
+                  ,
+                  iconData: Icons.lock,
+                  labeltext: "19".tr,
+                ),
+                CustomTextFormAuth(
+                  keyboardType: TextInputType.visiblePassword,
+                  valid: (val){
+                    return validInput(val!, 3, 40, "password");
+                  },
+                  // mycontroller: controller.email,
+                  hinttext: "Re" + " " + "13".tr,
+                  iconData: Icons.lock,
+                  labeltext: "19".tr,
+                ),
 
-                },
-                // mycontroller: controller.email,
-                hinttext: "13".tr
-                //"Enter your password "
-                ,
-                iconData: Icons.lock,
-                labeltext: "19".tr,
-              ),
-              CustomTextFormAuth(
-                valid: (val){
-
-                },
-                // mycontroller: controller.email,
-                hinttext: "Re" + " " + "13".tr,
-                iconData: Icons.lock,
-                labeltext: "19".tr,
-              ),
-
-              CustomButtonAuth(
-                text: "33".tr,
-                onPressed: (){
-                  controller.goToSuccessResetPassword();
-                },
-              ),
-              const SizedBox(height: 30,),
-            ],
+                CustomButtonAuth(
+                  text: "33".tr,
+                  onPressed: (){
+                    controller.goToSuccessResetPassword();
+                  },
+                ),
+                const SizedBox(height: 30,),
+              ],
+            ),
           ),
         )
     );
