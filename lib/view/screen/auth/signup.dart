@@ -5,7 +5,6 @@ import 'package:ecommerce_flutter_php_mysql/view/widget/auth/custombuttonauth.da
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextbodyauth.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextformauth.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtexttitleauth.dart';
-import 'package:ecommerce_flutter_php_mysql/view/widget/auth/logoauth.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/textsignup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -80,19 +79,24 @@ class SignUp extends StatelessWidget {
                   labeltext: "21".tr // "Phone"
                    ,
                 ),
-                 CustomTextFormAuth(
-                   keyboardType: TextInputType.visiblePassword,
-                   valid: (val){
-                     return validInput(val!, 3, 30, "password");
-                   },
-                  mycontroller: controller.password,
-                  hinttext: "13".tr //"Enter your password "
-                   ,
-                  iconData: Icons.lock,
-                  labeltext: "19".tr // "Password"
-                   ,
+                GetBuilder<SignUpControllerImp>(builder: (controller) =>
+                    CustomTextFormAuth(
+                      keyboardType: TextInputType.visiblePassword,
+                      obscureText: controller.isshopassword ,
+                      onTapIcon: (){
+                        controller.showPassword();
+                      },
+                      valid: (val){
+                        return validInput(val!, 3, 30, "password");
+                      },
+                      mycontroller: controller.password,
+                      hinttext: "13".tr //"Enter your password "
+                      ,
+                      iconData: Icons.lock,
+                      labeltext: "19".tr // "Password"
+                      ,
+                    )
                 ),
-
                 CustomButtonAuth(
                   text: "17".tr //"Sign Up"
                   ,
@@ -113,7 +117,8 @@ class SignUp extends StatelessWidget {
               ],
             ),
           ),
-        ))
+         )
+        )
 
     );
   }

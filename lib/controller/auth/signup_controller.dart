@@ -15,6 +15,16 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phone;
   late TextEditingController password;
 
+  bool isshopassword = true;
+
+
+  showPassword(){
+    isshopassword = isshopassword == true ? false : true;
+    update();
+  }
+
+
+
 
   @override
   SignUp() {

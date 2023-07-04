@@ -40,29 +40,43 @@ class ResetPassword extends StatelessWidget {
                  ),
                 const SizedBox(height: 15,),
 
-                CustomTextFormAuth(
-                  keyboardType: TextInputType.visiblePassword,
-                  valid: (val){
-                    return validInput(val!, 3, 40, "password");
-                  },
-                  // mycontroller: controller.email,
-                  hinttext: "13".tr
-                  //"Enter your password "
-                  ,
-                  iconData: Icons.lock,
-                  labeltext: "19".tr,
-                ),
-                CustomTextFormAuth(
-                  keyboardType: TextInputType.visiblePassword,
-                  valid: (val){
-                    return validInput(val!, 3, 40, "password");
-                  },
-                  // mycontroller: controller.email,
-                  hinttext: "Re" + " " + "13".tr,
-                  iconData: Icons.lock,
-                  labeltext: "19".tr,
-                ),
+               GetBuilder<ResetPasswordControllerImp>(builder: (controller) =>
+                   CustomTextFormAuth(
+                     keyboardType: TextInputType.visiblePassword,
+                     obscureText: controller.isshopassword,
+                     onTapIcon: (){
+                       controller.showPassword();
+                     },
+                     valid: (val){
+                       return validInput(val!, 3, 40, "password");
+                     },
+                     // mycontroller: controller.email,
+                     hinttext: "13".tr
+                     //"Enter your password "
+                     ,
+                     iconData: Icons.lock,
+                     labeltext: "19".tr,
+                   )
+               ),
+                GetBuilder<ResetPasswordControllerImp>(
+                    builder: (controller) =>
+                        CustomTextFormAuth(
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: controller.isshopassword,
+                          onTapIcon: (){
+                            controller.showPassword();
+                          },
+                          valid: (val){
+                            return validInput(val!, 3, 40, "password");
+                          },
+                          // mycontroller: controller.email,
+                          hinttext: "Re" + " " + "13".tr,
+                          iconData: Icons.lock,
+                          labeltext: "19".tr,
+                        )
 
+                )
+                ,
                 CustomButtonAuth(
                   text: "33".tr,
                   onPressed: (){

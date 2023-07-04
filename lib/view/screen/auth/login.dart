@@ -58,8 +58,13 @@ class Login extends StatelessWidget {
                   labeltext: "18".tr,
                   // mycontroller: ,
                 ),
-                CustomTextFormAuth(
-                  keyboardType: TextInputType.visiblePassword,
+                GetBuilder<LoginControllerImp>(
+                  builder: (controller)=>
+                      CustomTextFormAuth(
+                  obscureText: controller.isshopassword ,
+                  onTapIcon: (){
+                    controller.showPassword();
+                  },
                   valid: (val){
                     return validInput(val!, 5, 30, "password");
                   },
@@ -70,6 +75,9 @@ class Login extends StatelessWidget {
                   iconData: Icons.lock,
                   labeltext: "19".tr,
                 ),
+                )
+                ,
+
                 InkWell(
                   onTap: (){
                     controller.goToForgetPassword();
