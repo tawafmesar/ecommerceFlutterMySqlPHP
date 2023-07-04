@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../core/functions/alertexitapp.dart';
 import '../../../core/functions/validinput.dart';
 
 class SignUp extends StatelessWidget {
@@ -28,7 +29,9 @@ class SignUp extends StatelessWidget {
             title: Text("17".tr
                 //"Sign Up"
                 ,style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
-        body:Container(
+        body:WillPopScope(
+          onWillPop: alerExitApp
+          ,child: Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: Form(
             key: controller.formstate,
@@ -110,7 +113,7 @@ class SignUp extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ))
 
     );
   }
