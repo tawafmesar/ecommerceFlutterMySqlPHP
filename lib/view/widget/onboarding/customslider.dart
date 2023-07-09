@@ -23,8 +23,8 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                 Image.asset(
                   onBoardingList[i].image!,
                 //  width: 200,
-                //  height: 230,
-               //   fit: BoxFit.fill,
+                 height: Get.width / 1.3,
+                  fit: BoxFit.fill,
                 ),
                 const SizedBox(
                   height: 80,
@@ -35,7 +35,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                       fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(
-                  height: 80,
+                  height: 60,
                 ),
                 Container(
                     width: double.infinity,
