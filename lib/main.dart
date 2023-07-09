@@ -31,8 +31,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: controller.language,
       theme: controller.appTheme,
-      home: const Language(),
-      routes: routes,
+    //  home: const Language(),
+      //routes: routes,
+      getPages: routes
     );
   }
 }

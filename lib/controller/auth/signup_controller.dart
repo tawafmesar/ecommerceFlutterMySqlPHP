@@ -32,7 +32,6 @@ class SignUpControllerImp extends SignUpController {
       Get.offNamed(AppRoute.verifyCodeSignUp);
    //   Get.delete<SignUpControllerImp>();
     } else {
-      print("Not Valid");
     }
 
   }
