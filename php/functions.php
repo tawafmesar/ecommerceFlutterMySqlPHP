@@ -4,6 +4,27 @@
 //  Copyright Reserved Wael Wael Abo Hamza (Course Ecommerce)
 // ==========================================================
 
+
+
+// ==========================================================
+// send email by phpmailer
+// ==========================================================
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require 'includes/PHPMailer.php';
+require 'includes/SMTP.php';
+require 'includes/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+// ==========================================================
+// send email by phpmailer
+// ==========================================================
+
+
 define("MB", 1048576);
 
 function filterRequest($requestname)
@@ -148,5 +169,50 @@ function checkAuthenticate()
 function printFailure ($message = "none" ){
 
     echo json_encode(array( "status" => "failure" , "message" => $message));
+
+}
+
+
+
+function sendEmail($subject, $body, $sendto)
+{
+    $mail = new PHPMailer(true);
+
+    try {
+
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'hajkashal@gmail.com';
+        $mail->Password = 'mbrirxtwqrwzyayb';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        $mail->setFrom('hajkashal@gmail.com');
+        $mail->addAddress($sendto);
+
+        $mail->isHTML(false);
+        $mail->Subject = '=?UTF-8?B?' . base64_encode($subject) . '?='; // Set subject with UTF-8 encoding
+        $mail->CharSet = 'UTF-8'; // Set character encoding for the email body
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+
+        $mail->send();
+        $_SESSION['email_sent'] = true;
+
+        echo 'Email sent';
+
+    } catch (Exception $e) {
+        echo 'Email could not be sent. Error: ', $mail->ErrorInfo;
+    }
 
 }

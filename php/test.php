@@ -1,12 +1,14 @@
-<?php 
+<?php
 
-include './connect.php';
-$table = "users";
-// $name = filterRequest("namerequest");
-$data = array( 
-"users_name" => "wael",
-"users_email" => "wael@gmail.com",
-"users_phone" => "324234",
-"users_verfiycode" => "3243243",       
-);
-$count = insertData($table , $data);
+
+include "connect.php";
+
+
+$subject = 'موضوع البريد الإلكتروني';
+$body = 'هذه رسالة اختبار في الجسم.';
+$sendto = 'tawafmesar@gmail.com';
+
+sendEmail($subject, $body, $sendto);
+
+?>
+
