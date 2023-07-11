@@ -1,5 +1,6 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
 import 'package:ecommerce_flutter_php_mysql/core/middleware/mymiddleware.dart';
+import 'package:ecommerce_flutter_php_mysql/test.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/login.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/resetpassword.dart';
@@ -19,6 +20,9 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: "/", page: () => const Language() , middlewares: [
     MyMiddleWare()
   ]),
+
+  //GetPage(name: "/" , page: () =>  Test()),
+
   GetPage(name: AppRoute.login , page: () => const Login()),
   GetPage(name: AppRoute.onBoarding , page: () => const onBoarding()),
   GetPage(name: AppRoute.signUp , page: () => const SignUp()),
