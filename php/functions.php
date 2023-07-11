@@ -174,7 +174,7 @@ function printFailure ($message = "none" ){
 
 
 
-function sendEmail($subject, $body, $sendto)
+function sendEmail( $email ,  $body , $subject)
 {
     $mail = new PHPMailer(true);
 
@@ -190,7 +190,7 @@ function sendEmail($subject, $body, $sendto)
         $mail->Port = 587;
 
         $mail->setFrom('hajkashal@gmail.com');
-        $mail->addAddress($sendto);
+        $mail->addAddress($email);
 
         $mail->isHTML(false);
         $mail->Subject = '=?UTF-8?B?' . base64_encode($subject) . '?='; // Set subject with UTF-8 encoding
@@ -209,7 +209,7 @@ function sendEmail($subject, $body, $sendto)
         $mail->send();
         $_SESSION['email_sent'] = true;
 
-        echo 'Email sent';
+//        echo 'Email sent';
 
     } catch (Exception $e) {
         echo 'Email could not be sent. Error: ', $mail->ErrorInfo;

@@ -11,4 +11,3 @@ $sendto = 'tawafmesar@gmail.com';
 sendEmail($subject, $body, $sendto);
 
 ?>
-

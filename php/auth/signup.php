@@ -6,6 +6,7 @@ $username = filterRequest("username");
 $password = sha1("password");
 $email = filterRequest("email");
 $phone = filterRequest("phone");
+
 $verfiycode = rand(10000, 99999);
 
 $stmt = $con->prepare("SELECT * FROM users WHERE users_email = ? OR users_phone = ? ");
@@ -22,7 +23,8 @@ if ($count > 0) {
         "users_phone" => $phone,
         "users_verfiycode" => $verfiycode,
     );
-  //  sendEmail($email, "Verfiy Code Ecommerce", "Verfiy Code $verfiycode");
+    sendEmail($email, "Activate your account by this verfiy Code :  $verfiycode", "Activation ");
     insertData("users", $data);
 
 }
+
