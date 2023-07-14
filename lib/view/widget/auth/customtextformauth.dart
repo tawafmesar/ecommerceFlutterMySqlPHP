@@ -4,23 +4,43 @@ class CustomTextFormAuth extends StatelessWidget {
   final String labeltext;
   final IconData iconData;
   final TextEditingController? mycontroller;
+  final String? Function(String?) valid;
+  final TextInputType? keyboardType ;
+  final bool? obscureText;
+  final void Function()? onTapIcon;
 
-  const CustomTextFormAuth({Key? key, required this.hinttext, required this.labeltext, required this.iconData, this.mycontroller}) : super(key: key);
+  const CustomTextFormAuth({Key? key,
+    this.obscureText ,
+    this.onTapIcon,
+    required this.hinttext,
+    required this.labeltext,
+    required this.iconData,
+    this.mycontroller,
+    required this.valid,
+    this.keyboardType,
+
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return   Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
-        controller: mycontroller,
+        keyboardType: keyboardType,
 
-        decoration:  InputDecoration(
+        validator: valid,
+        controller: mycontroller,
+        obscureText: obscureText == null || obscureText == false  ? false : true,        decoration:  InputDecoration(
 
             hintText: hinttext,
             hintStyle: const TextStyle(fontSize: 14),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             contentPadding:const EdgeInsets.symmetric(vertical: 5,horizontal: 30),
-            suffixIcon: Icon(iconData),
+            suffixIcon: InkWell(
+              child:  Icon(iconData) ,
+              onTap: onTapIcon,
+            )
+            ,
                 label: Container(
                 margin:const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(labeltext)),

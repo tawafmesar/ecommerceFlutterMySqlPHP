@@ -1,3 +1,4 @@
+import 'package:ecommerce_flutter_php_mysql/bindings/intialbindings.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/core/localization/changelocal.dart';
 import 'package:ecommerce_flutter_php_mysql/core/localization/translation.dart';
@@ -30,27 +31,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       locale: controller.language,
-      theme: ThemeData(
-
-        fontFamily: "PlayfairDisplay",
-        textTheme: const TextTheme(
-            headline1: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: AppColor.black),
-            headline2: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 26,
-                color: AppColor.black),
-            bodyText1: TextStyle(
-                height: 2,
-                color: AppColor.grey,
-                fontWeight: FontWeight.bold,
-                fontSize: 14)),
-        primarySwatch: Colors.blue,
-      ),
-      home: const Language(),
-      routes: routes,
+      theme: controller.appTheme,
+    initialBinding: InitialBindings(),
+    //  home: const Language(),
+      //routes: routes,
+      getPages: routes
     );
   }
 }

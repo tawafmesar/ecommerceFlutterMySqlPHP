@@ -8,9 +8,18 @@ abstract class ResetPasswordController extends GetxController{
 
 }
 class ResetPasswordControllerImp extends ResetPasswordController {
-
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController password;
   late TextEditingController repassword;
+
+  bool isshopassword = true;
+
+
+  showPassword(){
+    isshopassword = isshopassword == true ? false : true;
+    update();
+  }
+
 
 
   @override
@@ -20,7 +29,11 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   goToSuccessResetPassword() {
-    Get.toNamed(AppRoute.successResetPassword);
+    if (formstate.currentState!.validate()) {
+      Get.toNamed(AppRoute.successResetPassword);
+    } else {
+      print("Not Valid");
+    }
   }
 
 

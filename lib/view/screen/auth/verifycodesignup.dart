@@ -10,13 +10,15 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/auth/verifycodesignup_controller.dart';
 
-class VerifyCode extends StatelessWidget {
-  const VerifyCode({super.key});
+
+class VerifyCodeSignUp extends StatelessWidget {
+  const VerifyCodeSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeControllerImp  controller = Get.put(VerifyCodeControllerImp());
+    VerifyCodeSignUpControllerImp  controller = Get.put(VerifyCodeSignUpControllerImp());
 
     return Scaffold(
         appBar: AppBar(
@@ -47,11 +49,9 @@ class VerifyCode extends StatelessWidget {
                 },
                 //runs when every textfield is filled
                 onSubmit: (String verificationCode){
-                  controller.goToRestPassword();
+                  controller.goToSuccessSignUp();
                 }, // end onSubmit
               ),
-
-
 
 
             ],

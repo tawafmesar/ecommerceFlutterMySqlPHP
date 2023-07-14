@@ -1,19 +1,18 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-abstract class CheckEmailController extends GetxController{
-  checkEmail();
+abstract class VerifyCodeSignUpController extends GetxController{
+  checkCode();
   goToSuccessSignUp();
 
 }
-class CheckEmailControllerImp extends CheckEmailController {
+class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
 
-  late TextEditingController email;
+  late String verifycode;
 
 
   @override
-  checkEmail() {
+  checkCode() {
 
   }
 
@@ -23,9 +22,10 @@ class CheckEmailControllerImp extends CheckEmailController {
   }
 
 
+
+
   @override
   void onInit() {
-    email = TextEditingController();
 
     super.onInit();
 
@@ -33,7 +33,8 @@ class CheckEmailControllerImp extends CheckEmailController {
 
   @override
   void dispose() {
-    email.dispose();
+
     super.dispose();
   }
+
 }
