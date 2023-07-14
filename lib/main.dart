@@ -1,3 +1,4 @@
+import 'package:ecommerce_flutter_php_mysql/bindings/intialbindings.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/core/localization/changelocal.dart';
 import 'package:ecommerce_flutter_php_mysql/core/localization/translation.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: controller.language,
       theme: controller.appTheme,
+    initialBinding: InitialBindings(),
     //  home: const Language(),
       //routes: routes,
       getPages: routes

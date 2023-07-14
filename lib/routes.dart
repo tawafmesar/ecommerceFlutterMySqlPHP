@@ -11,17 +11,18 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/veri
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/verifycodesignup.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/language.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
+import 'package:ecommerce_flutter_php_mysql/view/test_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
 List<GetPage<dynamic>>? routes = [
 
-  GetPage(name: "/", page: () => const Language() , middlewares: [
-    MyMiddleWare()
-  ]),
+  // GetPage(name: "/", page: () => const Language() , middlewares: [
+  //   MyMiddleWare()
+  // ]),
 
-  //GetPage(name: "/" , page: () =>  Test()),
+  GetPage(name: "/" , page: () =>  TestView()),
 
   GetPage(name: AppRoute.login , page: () => const Login()),
   GetPage(name: AppRoute.onBoarding , page: () => const onBoarding()),
