@@ -21,7 +21,7 @@ class SignUpControllerImp extends SignUpController {
 
   bool isshopassword = true;
 
-  late StatusRequest statusRequest;
+   StatusRequest? statusRequest;
 
   SignupData signupData = SignupData(Get.find());
 
@@ -39,6 +39,7 @@ class SignUpControllerImp extends SignUpController {
   SignUp() async {
     if (formstate.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signupData.postData(username.text,password.text,email.text,phone.text);
       print("=============================== Controller $response ");
       statusRequest = handlingData(response);
