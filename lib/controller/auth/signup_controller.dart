@@ -44,7 +44,7 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          data.addAll(response['data']);
+        //  data.addAll(response['data']);
           Get.offNamed(AppRoute.verifyCodeSignUp);
 
         } else {
@@ -56,6 +56,7 @@ class SignUpControllerImp extends SignUpController {
    //   Get.delete<SignUpControllerImp>();
 
     } else {
+
     }
 
   }

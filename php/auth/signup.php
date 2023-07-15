@@ -27,4 +27,3 @@ if ($count > 0) {
     insertData("users", $data);
 
 }
-

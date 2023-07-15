@@ -163,6 +163,7 @@ function checkAuthenticate()
     }
 
     // End 
+
 }
 
 
@@ -174,7 +175,7 @@ function printFailure ($message = "none" ){
 
 
 
-function sendEmail( $email ,  $body , $subject)
+function sendEmail($email ,  $body , $subject)
 {
     $mail = new PHPMailer(true);
 
@@ -214,5 +215,4 @@ function sendEmail( $email ,  $body , $subject)
     } catch (Exception $e) {
         echo 'Email could not be sent. Error: ', $mail->ErrorInfo;
     }
-
 }
