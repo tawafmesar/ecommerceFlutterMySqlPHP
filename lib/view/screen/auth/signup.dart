@@ -35,8 +35,11 @@ class SignUp extends StatelessWidget {
           builder:
               (controller) =>
 
-                  controller.statusRequest == StatusRequest.loading ?
-
+                  controller.statusRequest == StatusRequest.loading
+                      ? const Center(
+                         child: Text("Loading..."),
+                      )
+                    :
                   Container(
                 padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
                 child: Form(
@@ -125,7 +128,7 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               )
-          ,)
+          )
         )
     );
   }

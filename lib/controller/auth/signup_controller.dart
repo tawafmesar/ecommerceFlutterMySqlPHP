@@ -46,7 +46,11 @@ class SignUpControllerImp extends SignUpController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
         //  data.addAll(response['data']);
-          Get.offNamed(AppRoute.verifyCodeSignUp);
+          Get.offNamed(AppRoute.verifyCodeSignUp ,
+              arguments: {"email" : email.text
+               // , "password" : password.text
+              }
+          );
 
         } else {
           Get.defaultDialog(title: "Warning",middleText: "Phone number or email already exists");
