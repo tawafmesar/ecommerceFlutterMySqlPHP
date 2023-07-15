@@ -7,61 +7,43 @@ import '../../data/datasource/remote/auth/verifycodesignup.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController{
   checkCode();
-  goToSuccessSignUp();
-
+  goToSuccessSignUp(String verfiyCodeSignUp);
 }
+
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
+  VerifyCodeSignUpData verfiyCodeSignUpData = VerifyCodeSignUpData(Get.find());
 
-  VerifyCodeSignupData verifyCodeSignupData = VerifyCodeSignupData(Get.find());
 
-  late String verifycode;
-    String? email;
-  //  String? password;
+  String? email;
 
-  StatusRequest ? statusRequest;
+  StatusRequest? statusRequest;
 
   @override
-  checkCode() {
-
-  }
+  checkCode() {}
 
   @override
-  goToSuccessSignUp() async {
-
+  goToSuccessSignUp(verfiyCodeSignUp) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verifyCodeSignupData.postData(email! , verifycode);
-    print("=============================== Controller $response ");
+    var response = await verfiyCodeSignUpData.postdata(email!, verfiyCodeSignUp);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        Get.toNamed(AppRoute.successSignUp );
-
+        Get.offNamed(AppRoute.successSignUp);
       } else {
-        Get.defaultDialog(title: "Warning",middleText: "");
-        statusRequest = StatusRequest.failure ;
+        Get.defaultDialog(
+            title: "ُWarning",
+            middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.failure;
       }
     }
     update();
-
   }
-
-
-
 
   @override
   void onInit() {
     email = Get.arguments['email'];
-   // password = Get.arguments['password'];
-
     super.onInit();
-
-  }
-
-  @override
-  void dispose() {
-
-    super.dispose();
   }
 
 }
