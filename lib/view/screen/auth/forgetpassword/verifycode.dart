@@ -1,5 +1,5 @@
 
-import 'package:ecommerce_flutter_php_mysql/controller/auth/verfiycode_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/controller/forgetpassword/verfiycode_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextbodyauth.dart';

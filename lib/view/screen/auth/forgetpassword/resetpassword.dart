@@ -1,4 +1,4 @@
-import 'package:ecommerce_flutter_php_mysql/controller/auth/resetpassword_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/controller/forgetpassword/resetpassword_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextbodyauth.dart';

@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/forgetpassword_controller.dart';
+import '../../../../controller/forgetpassword/forgetpassword_controller.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -57,7 +57,7 @@ class ForgetPassword extends StatelessWidget {
                 CustomButtonAuth(
                   text: "30".tr,
                   onPressed: (){
-                    controller.goToVerfiyCode();
+                    controller.checkemail();
                   },
                 ),
                 const SizedBox(height: 30,),
