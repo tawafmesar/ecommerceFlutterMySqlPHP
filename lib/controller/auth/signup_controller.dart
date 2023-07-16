@@ -48,7 +48,7 @@ class SignUpControllerImp extends SignUpController {
         //  data.addAll(response['data']);
           Get.offNamed(AppRoute.verifyCodeSignUp ,
               arguments: {"email" : email.text
-           //    , "password" : password.text
+               , "password" : password.text
               }
           );
 

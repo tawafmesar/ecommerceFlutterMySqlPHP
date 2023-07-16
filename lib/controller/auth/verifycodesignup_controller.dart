@@ -15,6 +15,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
 
 
   String? email;
+  String? password;
 
   StatusRequest? statusRequest;
 
@@ -29,7 +30,11 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        Get.offNamed(AppRoute.successSignUp);
+        Get.offNamed(AppRoute.successSignUp,
+            arguments: {"email" : email
+              , "password" : password
+            }
+            );
       } else {
         Get.defaultDialog(
             title: "ُWarning",
@@ -43,6 +48,8 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   @override
   void onInit() {
     email = Get.arguments['email'];
+    password = Get.arguments['password'];
+
     super.onInit();
   }
 
