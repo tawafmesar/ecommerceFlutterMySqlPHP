@@ -51,9 +51,6 @@ class VerifyCode extends StatelessWidget {
                 }, // end onSubmit
               ),
 
-
-
-
             ],
           ),
         )

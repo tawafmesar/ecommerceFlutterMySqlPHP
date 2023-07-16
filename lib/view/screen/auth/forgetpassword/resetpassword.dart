@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/class/statusrequest.dart';
 import '../../../../core/functions/validinput.dart';
 
 
@@ -16,7 +17,7 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+    Get.put(ResetPasswordControllerImp());
 
     return Scaffold(
         appBar: AppBar(
@@ -25,7 +26,16 @@ class ResetPassword extends StatelessWidget {
             centerTitle: true,
             title: Text("Reset Password",
                 style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
-        body:Container(
+        body:GetBuilder<ResetPasswordControllerImp>(
+               builder: (controller) =>
+
+               controller.statusRequest == StatusRequest.loading
+                   ? const Center(
+                 child: Text("Loading..."),
+               )
+                   :
+
+               Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: Form(
             key: controller.formstate,
@@ -50,7 +60,7 @@ class ResetPassword extends StatelessWidget {
                      valid: (val){
                        return validInput(val!, 3, 40, "password");
                      },
-                     // mycontroller: controller.email,
+                     mycontroller: controller.password,
                      hinttext: "13".tr
                      //"Enter your password "
                      ,
@@ -69,7 +79,7 @@ class ResetPassword extends StatelessWidget {
                           valid: (val){
                             return validInput(val!, 3, 40, "password");
                           },
-                          // mycontroller: controller.email,
+                          mycontroller: controller.repassword,
                           hinttext: "Re" + " " + "13".tr,
                           iconData: Icons.lock,
                           labeltext: "19".tr,
@@ -87,6 +97,7 @@ class ResetPassword extends StatelessWidget {
               ],
             ),
           ),
+        )
         )
     );
   }

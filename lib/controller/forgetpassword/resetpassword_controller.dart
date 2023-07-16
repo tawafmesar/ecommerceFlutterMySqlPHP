@@ -45,8 +45,9 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   goToSuccessResetPassword() async {
     if (password.text != repassword.text) {
       return Get.defaultDialog(
-          title: "warning", middleText: "Password not mastch");
-    }
+          title: "warning", middleText: "Password Not Match");
+    }else{
+
     if (formstate.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
@@ -66,6 +67,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     } else {
       print("Not Valid");
     }
+  }
   }
 
 
