@@ -1,15 +1,23 @@
+import 'package:ecommerce_flutter_php_mysql/core/class/statusrequest.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
 import 'package:get/get.dart';
 
+import '../../core/functions/handingdatacontroller.dart';
+import '../../data/datasource/remote/forgetpassword/verifycode.dart';
+
 abstract class VerifyCodeController extends GetxController{
   checkCode();
-  goToRestPassword();
+  goToRestPassword(String verifycode);
 
 }
 class VerifyCodeControllerImp extends VerifyCodeController {
 
-  late String verifycode;
 
+  String? email;
+
+  VerifyCodeForgetPasswordData verifyCodeForgetPasswordData= VerifyCodeForgetPasswordData(Get.find());
+
+  StatusRequest? statusRequest;
 
   @override
   checkCode() {
@@ -17,8 +25,26 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   }
 
   @override
-  goToRestPassword() {
-    Get.toNamed(AppRoute.resetPassword);
+  goToRestPassword(verifycode) async{
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await verifyCodeForgetPasswordData.postdata(email!, verifycode);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        Get.offNamed(AppRoute.resetPassword,
+        arguments: {
+          "email" : email
+
+        }
+        );
+      } else {
+        Get.defaultDialog(
+            title: "ُWarning",
+            middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.failure;
+      }
+    }
   }
 
 
@@ -26,6 +52,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
 
   @override
   void onInit() {
+    email = Get.arguments['email'];
 
     super.onInit();
 
