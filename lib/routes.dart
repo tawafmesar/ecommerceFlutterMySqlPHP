@@ -9,6 +9,7 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/auth/success_signup.dart
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/successrestpassword.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/verifycodesignup.dart';
+import 'package:ecommerce_flutter_php_mysql/view/screen/home.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/language.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
 import 'package:ecommerce_flutter_php_mysql/view/test_view.dart';
@@ -34,6 +35,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.successSignUp , page: () => const SuccessSignUp()),
   GetPage(name: AppRoute.verifyCodeSignUp , page: () => const VerifyCodeSignUp()),
 
+  GetPage(name: AppRoute.homepage , page: () => const Home()),
 
 ];
 

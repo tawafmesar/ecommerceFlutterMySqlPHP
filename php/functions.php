@@ -167,12 +167,22 @@ function checkAuthenticate()
 }
 
 
-function printFailure ($message = "none" ){
-
-    echo json_encode(array( "status" => "failure" , "message" => $message));
-
+function   printFailure($message = "none")
+{
+    echo     json_encode(array("status" => "failure" , "message" => $message));
+}
+function   printSuccess($message = "none")
+{
+    echo     json_encode(array("status" => "success" , "message" => $message));
 }
 
+function result($count){
+   if ($count > 0){
+    printSuccess() ;
+   }else {
+    printFailure()  ;
+   }
+}
 
 
 function sendEmail($email ,  $body , $subject)
