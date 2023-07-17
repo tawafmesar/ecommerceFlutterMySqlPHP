@@ -1,40 +1,43 @@
+import 'package:ecommerce_flutter_php_mysql/core/class/statusrequest.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
 import 'package:get/get.dart';
 
-import '../../core/class/statusrequest.dart';
 import '../../core/functions/handingdatacontroller.dart';
-import '../../data/datasource/remote/auth/verifycodesignup.dart';
+import '../../data/datasource/remote/forgetpassword/verifycode.dart';
 
-abstract class VerifyCodeSignUpController extends GetxController{
+abstract class VerifyCodeController extends GetxController{
   checkCode();
-  goToSuccessSignUp(String verfiyCodeSignUp);
-}
+  goToRestPassword(String verifycode);
 
-class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  VerifyCodeSignUpData verfiyCodeSignUpData = VerifyCodeSignUpData(Get.find());
+}
+class VerifyCodeControllerImp extends VerifyCodeController {
 
 
   String? email;
-  String? password;
+
+  VerifyCodeForgetPasswordData verifyCodeForgetPasswordData= VerifyCodeForgetPasswordData(Get.find());
 
   StatusRequest statusRequest = StatusRequest.none;
 
   @override
-  checkCode() {}
+  checkCode() {
+
+  }
 
   @override
-  goToSuccessSignUp(verfiyCodeSignUp) async {
+  goToRestPassword(verifycode) async{
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verfiyCodeSignUpData.postdata(email!, verfiyCodeSignUp);
+    var response = await verifyCodeForgetPasswordData.postdata(email!, verifycode);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        Get.offNamed(AppRoute.successSignUp,
-            arguments: {"email" : email
-              , "password" : password
-            }
-            );
+        Get.offNamed(AppRoute.resetPassword,
+        arguments: {
+          "email" : email
+
+        }
+        );
       } else {
         Get.defaultDialog(
             title: "ُWarning",
@@ -42,15 +45,23 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
         statusRequest = StatusRequest.failure;
       }
     }
-    update();
   }
+
+
+
 
   @override
   void onInit() {
     email = Get.arguments['email'];
-    password = Get.arguments['password'];
 
     super.onInit();
+
+  }
+
+  @override
+  void dispose() {
+
+    super.dispose();
   }
 
 }

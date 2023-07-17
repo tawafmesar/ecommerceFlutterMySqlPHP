@@ -10,4 +10,6 @@ class AppRoute {
   static const String successSignUp = "/successsignup";
   static const String verifyCodeSignUp = "/verfiycodesignup";
 
+  static const String homepage = "/homepage";
+
 }

@@ -40,8 +40,8 @@ class SuccessSignUp extends StatelessWidget {
                 color: AppColor.primaryColor,
               ),
             ),
-            Text("...."),
-            Text("...."),
+            const Text("Congratulations"),
+           const Text("successfully registered"),
             Spacer(),
             SizedBox(
               width: double.infinity,

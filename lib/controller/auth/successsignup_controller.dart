@@ -8,13 +8,28 @@ abstract class SuccessSignUpController extends GetxController{
 }
 class SuccessSignUpControllerImp extends SuccessSignUpController {
 
+  String? email;
+  String? password;
 
 
   @override
   goToPageLogin() {
-    Get.toNamed(AppRoute.login);
+    Get.toNamed(AppRoute.login,
+        arguments: {"emailsignup" : email
+          , "passwordssignup" : password
+        }
+
+    );
   }
 
+
+  @override
+  void onInit() {
+    email = Get.arguments['email'];
+    password = Get.arguments['password'];
+
+    super.onInit();
+  }
 
 
 }

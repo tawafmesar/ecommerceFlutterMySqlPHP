@@ -2,6 +2,10 @@ import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../core/class/statusrequest.dart';
+import '../../core/functions/handingdatacontroller.dart';
+import '../../data/datasource/remote/auth/login.dart';
+
 abstract class LoginController extends GetxController{
   login();
   goToSigUp();
@@ -9,30 +13,43 @@ abstract class LoginController extends GetxController{
 }
 
 class LoginControllerImp extends LoginController {
+  LoginData loginData = LoginData(Get.find());
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-    late TextEditingController email;
-    late TextEditingController password;
+  late TextEditingController email;
+  late TextEditingController password;
 
+  String? emailsignup;
+  String? passwordssignup;
 
-    bool isshopassword = true;
+  bool isshopassword = true;
+  StatusRequest statusRequest = StatusRequest.none;
 
-
-    showPassword(){
-      isshopassword = isshopassword == true ? false : true;
-      update();
-    }
-
-
+  showPassword() {
+    isshopassword = !isshopassword;
+    update();
+  }
 
   @override
-  login() {
-    var formdata= formstate.currentState;
-    if (formdata!.validate()){
-      print(" valid");
-    }else{
-      print("not valid");
+  login() async {
+    if (formstate.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await loginData.postdata(email.text, password.text);
+      print("=============================== Controller $response ");
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          Get.offNamed(AppRoute.homepage);
+        } else {
+          Get.defaultDialog(title: "Warning", middleText: "Email Or Password Not Correct");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
+    } else {
+      // Form validation failed
     }
   }
 
@@ -41,7 +58,6 @@ class LoginControllerImp extends LoginController {
     Get.offNamed(AppRoute.signUp);
   }
 
-
   @override
   goToForgetPassword() {
     Get.toNamed(AppRoute.forgetPassword);
@@ -49,11 +65,16 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
-     email = TextEditingController();
-     password = TextEditingController();
+    email = TextEditingController();
+    password = TextEditingController();
 
     super.onInit();
 
+    emailsignup = Get.arguments?['emailsignup'];
+    passwordssignup = Get.arguments?['passwordssignup'];
+
+    email.text = emailsignup ?? '';
+    password.text = passwordssignup ?? '';
   }
 
   @override

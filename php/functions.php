@@ -163,18 +163,29 @@ function checkAuthenticate()
     }
 
     // End 
-}
-
-
-function printFailure ($message = "none" ){
-
-    echo json_encode(array( "status" => "failure" , "message" => $message));
 
 }
 
 
+function   printFailure($message = "none")
+{
+    echo     json_encode(array("status" => "failure" , "message" => $message));
+}
+function   printSuccess($message = "none")
+{
+    echo     json_encode(array("status" => "success" , "message" => $message));
+}
 
-function sendEmail( $email ,  $body , $subject)
+function result($count){
+   if ($count > 0){
+    printSuccess() ;
+   }else {
+    printFailure()  ;
+   }
+}
+
+
+function sendEmail($email ,  $body , $subject)
 {
     $mail = new PHPMailer(true);
 
@@ -214,5 +225,4 @@ function sendEmail( $email ,  $body , $subject)
     } catch (Exception $e) {
         echo 'Email could not be sent. Error: ', $mail->ErrorInfo;
     }
-
 }

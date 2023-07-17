@@ -1,4 +1,4 @@
-import 'package:ecommerce_flutter_php_mysql/controller/auth/resetpassword_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/controller/forgetpassword/resetpassword_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce_flutter_php_mysql/view/widget/auth/customtextbodyauth.dart';
@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/class/handlingdataview.dart';
+import '../../../../core/class/statusrequest.dart';
 import '../../../../core/functions/validinput.dart';
 
 
@@ -16,7 +18,7 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+    Get.put(ResetPasswordControllerImp());
 
     return Scaffold(
         appBar: AppBar(
@@ -25,7 +27,13 @@ class ResetPassword extends StatelessWidget {
             centerTitle: true,
             title: Text("Reset Password",
                 style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
-        body:Container(
+        body:GetBuilder<ResetPasswordControllerImp>(
+               builder: (controller) =>
+
+
+          HandlingDataViewRequest(statusRequest: controller.statusRequest,
+          widget:
+               Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: Form(
             key: controller.formstate,
@@ -50,7 +58,7 @@ class ResetPassword extends StatelessWidget {
                      valid: (val){
                        return validInput(val!, 3, 40, "password");
                      },
-                     // mycontroller: controller.email,
+                     mycontroller: controller.password,
                      hinttext: "13".tr
                      //"Enter your password "
                      ,
@@ -69,7 +77,7 @@ class ResetPassword extends StatelessWidget {
                           valid: (val){
                             return validInput(val!, 3, 40, "password");
                           },
-                          // mycontroller: controller.email,
+                          mycontroller: controller.repassword,
                           hinttext: "Re" + " " + "13".tr,
                           iconData: Icons.lock,
                           labeltext: "19".tr,
@@ -88,6 +96,7 @@ class ResetPassword extends StatelessWidget {
             ),
           ),
         )
+        ))
     );
   }
 }
