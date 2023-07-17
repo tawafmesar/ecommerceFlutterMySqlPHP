@@ -21,7 +21,9 @@ class SignUpControllerImp extends SignUpController {
 
   bool isshopassword = true;
 
-   StatusRequest? statusRequest;
+
+  StatusRequest statusRequest = StatusRequest.none;
+
 
   SignupData signupData = SignupData(Get.find());
 
