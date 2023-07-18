@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/class/handlingdataview.dart';
 import '../../../../core/class/statusrequest.dart';
 import '../../../../core/functions/validinput.dart';
 
@@ -29,12 +30,9 @@ class ResetPassword extends StatelessWidget {
         body:GetBuilder<ResetPasswordControllerImp>(
                builder: (controller) =>
 
-               controller.statusRequest == StatusRequest.loading
-                   ? const Center(
-                 child: Text("Loading..."),
-               )
-                   :
 
+          HandlingDataViewRequest(statusRequest: controller.statusRequest,
+          widget:
                Container(
           padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
           child: Form(
@@ -98,7 +96,7 @@ class ResetPassword extends StatelessWidget {
             ),
           ),
         )
-        )
+        ))
     );
   }
 }

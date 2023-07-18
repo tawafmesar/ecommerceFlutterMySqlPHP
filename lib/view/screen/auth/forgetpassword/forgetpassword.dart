@@ -12,6 +12,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 import '../../../../controller/forgetpassword/forgetpassword_controller.dart';
+import '../../../../core/class/handlingdataview.dart';
 import '../../../../core/class/statusrequest.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -31,11 +32,8 @@ class ForgetPassword extends StatelessWidget {
         body:GetBuilder<ForgetPasswordControllerImp>(
           builder: (controller)=>
 
-          controller.statusRequest == StatusRequest.loading
-              ? const Center(
-            child: Text("Loading..."),
-          )
-              :
+          HandlingDataViewRequest(statusRequest: controller.statusRequest,
+          widget:
 
           Container(
               padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
@@ -78,6 +76,7 @@ class ForgetPassword extends StatelessWidget {
             )
           ,
 
+        )
         )
 
     );

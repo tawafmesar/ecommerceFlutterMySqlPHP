@@ -1,5 +1,6 @@
 
 import 'package:ecommerce_flutter_php_mysql/controller/auth/login_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/core/class/handlingdataview.dart';
 import 'package:ecommerce_flutter_php_mysql/core/constant/color.dart';
 import 'package:ecommerce_flutter_php_mysql/core/functions/alertexitapp.dart';
 import 'package:ecommerce_flutter_php_mysql/core/functions/validinput.dart';
@@ -34,13 +35,10 @@ class Login extends StatelessWidget {
             ,child: GetBuilder<LoginControllerImp>(
             builder: (controller)  =>
 
-            controller.statusRequest == StatusRequest.loading
-                ? const Center(
-              child: Text("Loading..."),
-            )
-                :
 
-                Container(
+
+                HandlingDataViewRequest(statusRequest: controller.statusRequest
+                    , widget: Container(
                   padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
                   child: Form(
                     key: controller.formstate,
@@ -121,6 +119,9 @@ class Login extends StatelessWidget {
                     ),
                   ),
                 )
+                )
+
+
 
           )
         )

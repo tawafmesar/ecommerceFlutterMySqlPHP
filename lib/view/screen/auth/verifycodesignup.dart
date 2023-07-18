@@ -11,6 +11,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/auth/verifycodesignup_controller.dart';
+import '../../../core/class/handlingdataview.dart';
 import '../../../core/class/statusrequest.dart';
 
 
@@ -30,11 +31,9 @@ class VerifyCodeSignUp extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColor.grey)) ),
         body: GetBuilder<VerifyCodeSignUpControllerImp>(
           builder: (controller) =>
-          controller.statusRequest == StatusRequest.loading ?
-            const Center(
-              child: Text("Loading..."),
-            ) :
 
+            HandlingDataViewRequest(statusRequest: controller.statusRequest,
+                widget:
               Container(
                 padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
                 child: ListView(
@@ -65,6 +64,7 @@ class VerifyCodeSignUp extends StatelessWidget {
                 ),
               )
           ,
+        )
         )
     );
   }

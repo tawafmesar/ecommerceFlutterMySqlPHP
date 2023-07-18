@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ class LoginControllerImp extends LoginController {
   String? passwordssignup;
 
   bool isshopassword = true;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   showPassword() {
     isshopassword = !isshopassword;
@@ -65,6 +66,11 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+      String? token = value;
+    });
+
     email = TextEditingController();
     password = TextEditingController();
 

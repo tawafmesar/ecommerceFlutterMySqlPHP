@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../core/class/handlingdataview.dart';
 import '../../../core/functions/alertexitapp.dart';
 import '../../../core/functions/validinput.dart';
 
@@ -35,12 +36,9 @@ class SignUp extends StatelessWidget {
           builder:
               (controller) =>
 
-                  controller.statusRequest == StatusRequest.loading
-                      ? const Center(
-                         child: Text("Loading..."),
-                      )
-                    :
-                  Container(
+                  HandlingDataViewRequest(statusRequest: controller.statusRequest,
+                       widget:
+                      Container(
                 padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
                 child: Form(
                   key: controller.formstate,
@@ -129,6 +127,7 @@ class SignUp extends StatelessWidget {
                 ),
               )
           )
+    )
         )
     );
   }
