@@ -80,6 +80,9 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   lottie: ^1.4.1
 
+dependency_overrides:
+  firebase_core_platform_interface: 4.5.1
+
 
 
 dev_dependencies:
