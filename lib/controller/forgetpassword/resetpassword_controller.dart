@@ -56,7 +56,12 @@ class ResetPasswordControllerImp extends ResetPasswordController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          Get.offNamed(AppRoute.successResetPassword);
+          Get.offNamed(AppRoute.successResetPassword ,
+              arguments: {"email" : email
+          , "password" : password
+          }
+
+          );
         } else {
           Get.defaultDialog(title: "Warning", middleText: "Try again");
           statusRequest = StatusRequest.failure;

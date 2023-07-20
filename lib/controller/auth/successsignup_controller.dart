@@ -14,7 +14,7 @@ class SuccessSignUpControllerImp extends SuccessSignUpController {
 
   @override
   goToPageLogin() {
-    Get.toNamed(AppRoute.login,
+    Get.offNamed(AppRoute.login,
         arguments: {"emailsignup" : email
           , "passwordssignup" : password
         }
