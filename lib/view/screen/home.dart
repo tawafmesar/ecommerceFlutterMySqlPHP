@@ -11,11 +11,11 @@ class Home extends StatelessWidget {
     HomeControllerImp controller =    Get.put(HomeControllerImp());
     return Scaffold(
       body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: ListView(
             children: [
               Container(
                 margin: EdgeInsets.only(top: 10),
-                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(children: [
                   Expanded(
                       child: TextFormField(
@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
                 ]),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                margin: EdgeInsets.symmetric( vertical: 15),
                 child: Stack(children: [
                   Container(
                     alignment: Alignment.center,
