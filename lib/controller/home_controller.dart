@@ -1,8 +1,13 @@
 import 'package:ecommerce_flutter_php_mysql/core/services/services.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+import '../core/class/statusrequest.dart';
+import '../core/functions/handingdatacontroller.dart';
+import '../data/datasource/remote/home_data.dart';
 
+abstract class HomeController extends GetxController {
+  initialData();
+  getdata();
 }
 
 class HomeControllerImp extends HomeController{
@@ -11,6 +16,15 @@ class HomeControllerImp extends HomeController{
   String? username;
   String? id;
 
+  HomeData homeData = HomeData(Get.find());
+
+  List data = [];
+  List categories = [];
+
+  late StatusRequest statusRequest;
+
+
+  @override
   initialData(){
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
@@ -22,5 +36,22 @@ class HomeControllerImp extends HomeController{
     initialData();
     super.onInit();
   }
+
+  @override
+  getdata() async {
+    statusRequest = StatusRequest.loading;
+    var response = await homeData.getData();
+    print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        categories.addAll(response['categories']);
+      } else {
+        statusRequest = StatusRequest.failure ;
+      }
+    }
+    update();
+  }
+
 }
 

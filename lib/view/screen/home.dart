@@ -67,7 +67,11 @@ class Home extends StatelessWidget {
                         color: AppColor.secoundColor ,
                         borderRadius: BorderRadius.circular(160)
                     ),),
-                  )
+                  ),
+                  // Container(
+                  //   child: //ListView.builder(itemBuilder: itemBuilder
+                  //    ),
+                  // )
                 ]),
               )
             ],
