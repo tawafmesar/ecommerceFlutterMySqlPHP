@@ -16,23 +16,23 @@ class HomeControllerImp extends HomeController{
   String? username;
   String? id;
 
-  HomeData homeData = HomeData(Get.find());
+  HomeData homedata = HomeData(Get.find());
 
   List data = [];
   List categories = [];
 
   late StatusRequest statusRequest;
 
-
   @override
-  initialData(){
-    username = myServices.sharedPreferences.getString("username");
-    id = myServices.sharedPreferences.getString("id");
+  initialData() {
 
+    username = myServices.sharedPreferences.getString("username") ;
+    id = myServices.sharedPreferences.getString("id") ;
   }
 
   @override
   void onInit() {
+    getdata() ;
     initialData();
     super.onInit();
   }
@@ -40,7 +40,7 @@ class HomeControllerImp extends HomeController{
   @override
   getdata() async {
     statusRequest = StatusRequest.loading;
-    var response = await homeData.getData();
+    var response = await homedata.getData();
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {

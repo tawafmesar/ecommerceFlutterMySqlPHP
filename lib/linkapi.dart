@@ -1,7 +1,13 @@
 class AppLink {
 
-  static const String server = "https://c51b-134-35-152-18.ngrok-free.app/ecommerce_flutter_php_mysql/php" ;
+  static const String server = "https://de12-134-35-211-181.ngrok-free.app/ecommerce_flutter_php_mysql/php" ;
   //
+
+  static const String imagesstatic = "$server/upload" ;
+  static const String imagestCategories = "$imagesstatic/categories" ;
+  static const String imagestItems = "$imagesstatic/items" ;
+
+
   static const String test = "$server/test.php" ;
 
   // ==================== Auth ==========================//
