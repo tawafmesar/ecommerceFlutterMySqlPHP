@@ -78,36 +78,90 @@ class Home extends StatelessWidget {
 
                         ]),
                       ),
-                      Container(
-                        height: 70,
+                      SizedBox(
+                        height: 90,
                         child: ListView.separated(
                             separatorBuilder: (context , index) =>
-                                SizedBox(width: 10,),
+                               const SizedBox(width: 10,),
                             itemCount: controller.categories.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context , index){
-                              return  Container(
-                                decoration: BoxDecoration(
-                                  color: AppColor.thirdColor,
+                              return  Column(children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: AppColor.thirdColor,
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  height: 70,
+                                  width: 70,
+                                  child:
+                                  SvgPicture.network(
+                                    "${AppLink.imagestCategories}/${controller.categories[index]['categories_image']}",
+                                  ),
+                                ),
+                                Text("${controller.categories[index]['categories_name']}",style: const TextStyle(fontSize: 13,),)
 
-                                ),
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                height: 70,
-                                width: 70,
-                                child:
-                                SvgPicture.network(
-                                  "${AppLink.imagestCategories}/${controller.categories[index]['categories_image']}",
-                                ),
-                              );
+                              ],);
                             }
                         ),
+                      ),
+                     const SizedBox(height: 10,)
+                      ,
+                      const Text("Product for you "
+                      ,style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.primaryColor
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        height: 200,
+                        child: ListView.builder(
+                            itemCount: 3,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, i) {
+                              return Stack(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    child: Image.asset(
+                                      "assets/images/2.png",
+                                      height: 100,
+                                      width: 150,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: AppColor.black.withOpacity(0.3),
+                                        borderRadius:
+                                        BorderRadius.circular(20)),
+                                    height: 120,
+                                    width: 200,
+                                  ),
+                                  const Positioned(
+                                      left: 10,
+                                      child: Text(
+                                        "Laptop Surface Go 2",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            // fontWeight: FontWeight.bold,
+                                            fontSize: 14),
+                                      ))
+                                ],
+                              );
+                            }),
                       )
                     ],
                   )
               )
           )
-
-      )
+      ),
     );
   }
 }
