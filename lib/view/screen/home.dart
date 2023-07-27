@@ -119,7 +119,7 @@ class Home extends StatelessWidget {
                       SizedBox(
                         height: 200,
                         child: ListView.builder(
-                            itemCount: 3,
+                            itemCount: controller.items.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, i) {
                               return Stack(
@@ -129,8 +129,8 @@ class Home extends StatelessWidget {
                                         horizontal: 20, vertical: 10),
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 10),
-                                    child: Image.asset(
-                                      "assets/images/2.png",
+                                    child: Image.network(
+                                      "${AppLink.imagestItems}/${controller.items[i]['items_image']}",
                                       height: 100,
                                       width: 150,
                                       fit: BoxFit.fill,
@@ -144,11 +144,11 @@ class Home extends StatelessWidget {
                                     height: 120,
                                     width: 200,
                                   ),
-                                  const Positioned(
+                                   Positioned(
                                       left: 10,
                                       child: Text(
-                                        "Laptop Surface Go 2",
-                                        style: TextStyle(
+                                        "${controller.items[i]['items_name']}",
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             // fontWeight: FontWeight.bold,
                                             fontSize: 14),
