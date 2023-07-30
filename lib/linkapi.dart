@@ -1,6 +1,6 @@
 class AppLink {
 
-  static const String server = "https://c9d2-175-110-56-226.ngrok-free.app/ecommerce_flutter_php_mysql/php" ;
+  static const String server = "https://unbolted-medicines.000webhostapp.com/php" ;
   //
 
   static const String imagesstatic = "$server/upload" ;
