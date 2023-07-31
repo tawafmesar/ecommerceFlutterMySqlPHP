@@ -1,4 +1,6 @@
 import 'package:ecommerce_flutter_php_mysql/core/constant/routes.dart';
+import 'package:ecommerce_flutter_php_mysql/core/services/services.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +26,9 @@ class LoginControllerImp extends LoginController {
   String? passwordssignup;
 
   bool isshopassword = true;
+
+  MyServices myServices = Get.find();
+
   StatusRequest statusRequest = StatusRequest.none;
 
   showPassword() {
@@ -41,6 +46,12 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
+          myServices.sharedPreferences.setString("id",response['data']['users_id']);
+          myServices.sharedPreferences.setString("username", response['data']['users_name']);
+          myServices.sharedPreferences.setString("email", response['data']['users_email']);
+          myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
+          myServices.sharedPreferences.setString("step", "2" );
+
           Get.offNamed(AppRoute.homepage);
         } else {
           Get.defaultDialog(title: "Warning", middleText: "Email Or Password Not Correct");
@@ -65,6 +76,11 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+      String? token = value;
+    });
+
     email = TextEditingController();
     password = TextEditingController();
 

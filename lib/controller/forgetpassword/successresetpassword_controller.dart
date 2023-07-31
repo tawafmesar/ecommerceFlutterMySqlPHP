@@ -8,13 +8,28 @@ abstract class SuccessResetPasswordController extends GetxController{
 }
 class SuccessResetPasswordControllerImp extends SuccessResetPasswordController {
 
+  String? email;
+  String? password;
+
 
 
   @override
   goToPageLogin() {
-    Get.toNamed(AppRoute.login);
+    Get.offNamed(AppRoute.login,
+        arguments: {"emailsignup" : email
+          , "passwordssignup" : password
+        }
+    );
   }
 
+
+  @override
+  void onInit() {
+    email = Get.arguments['email'];
+    password = Get.arguments['password'];
+
+    super.onInit();
+  }
 
 
 }

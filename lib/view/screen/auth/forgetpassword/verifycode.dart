@@ -39,9 +39,8 @@ class VerifyCode extends StatelessWidget {
             children:  [
               const CustomTextTitleAuth(text:"Check Code" ),
               const SizedBox(height: 10,),
-              const CustomTextBodyAuth(text: "Please enter the digit code sent to tawaf@gmail.com "),
+              CustomTextBodyAuth(text: "Please enter the digit code sent to  \n" "${controller.email}"),
               const SizedBox(height: 15,),
-
               OtpTextField(
                 fieldWidth: 50.0,
                 borderRadius: BorderRadius.circular(20),
