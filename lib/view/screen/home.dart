@@ -29,14 +29,11 @@ class Home extends StatelessWidget {
                     children: [
                       CustomAppBar(titleappbar: "Find product", onPressedIcon: (){},onPressedSearch: (){},),
                         const  CustomCardHome( title: 'A summer suprise ', body: 'Cashback 20%',),
+                      const CustomTitleHome(title: 'Categories'),
                       const  ListCategoriesHome(),
-                     const SizedBox(height: 10,),
                       const CustomTitleHome(title: 'Product for you'),
-                      const SizedBox(height: 10),
                       const ListItemsHome(),
-
                       const CustomTitleHome(title: 'Offers'),
-                      const SizedBox(height: 10),
                       const ListItemsHome(),
 
                     ],
