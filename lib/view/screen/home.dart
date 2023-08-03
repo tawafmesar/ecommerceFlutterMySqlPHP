@@ -19,8 +19,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       Get.put(HomeControllerImp());
-    return Scaffold(
-      body: GetBuilder<HomeControllerImp>(builder:
+    return  GetBuilder<HomeControllerImp>(builder:
           (controller)=> HandlingDataView(
               statusRequest: controller.statusRequest,
               widget:      Container(
@@ -40,7 +39,7 @@ class Home extends StatelessWidget {
                   )
               )
           )
-      ),
-    );
+      )
+    ;
   }
 }

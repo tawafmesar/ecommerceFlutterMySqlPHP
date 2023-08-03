@@ -10,6 +10,7 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/succ
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/verifycodesignup.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/home.dart';
+import 'package:ecommerce_flutter_php_mysql/view/screen/homescreen.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/language.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
 import 'package:ecommerce_flutter_php_mysql/view/test_view.dart';
@@ -23,7 +24,7 @@ List<GetPage<dynamic>>? routes = [
   //   MyMiddleWare()
   // ]),
 
- GetPage(name: "/" , page: () =>  Home()),
+ GetPage(name: "/" , page: () =>  HomeScreen()),
 
   GetPage(name: AppRoute.login , page: () => const Login()),
   GetPage(name: AppRoute.onBoarding , page: () => const onBoarding()),
@@ -35,7 +36,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.successSignUp , page: () => const SuccessSignUp()),
   GetPage(name: AppRoute.verifyCodeSignUp , page: () => const VerifyCodeSignUp()),
 
-  GetPage(name: AppRoute.homepage , page: () => const Home()),
+  GetPage(name: AppRoute.homepage , page: () => const HomeScreen()),
 
 ];
 
