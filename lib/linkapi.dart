@@ -1,6 +1,6 @@
 class AppLink {
 
-  static const String server = "" ;
+  static const String server = "https://unbolted-medicines.000webhostapp.com/php" ;
 
 
   static const String imagesstatic = "$server/upload" ;
