@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constant/color.dart';
+
 
 class CustomButtonAppBar extends StatelessWidget {
   final void Function()? onPressed;
   final String textbutton;
   final IconData icondata;
-  final Color coloritemSelected;
+  final bool? active ;
 
 
-  const CustomButtonAppBar({super.key, this.onPressed, required this.textbutton, required this.icondata, required this.coloritemSelected});
+   const CustomButtonAppBar({super.key,
+    required this.onPressed,
+    required this.textbutton,
+    required this.icondata,
+    required this.active
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +23,8 @@ class CustomButtonAppBar extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-            Icon(icondata,color: coloritemSelected), 
-            Text(textbutton,style: TextStyle(color: coloritemSelected),)],
+            Icon(icondata,color:active == true ? AppColor.primaryColor : Colors.black),
+            Text(textbutton,style: TextStyle(color:active == true ? AppColor.primaryColor :   Colors.black),)],
           ),
         );
   }
