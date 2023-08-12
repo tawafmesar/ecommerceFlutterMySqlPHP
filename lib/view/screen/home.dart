@@ -19,8 +19,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       Get.put(HomeControllerImp());
-    return Scaffold(
-      body: GetBuilder<HomeControllerImp>(builder:
+    return  GetBuilder<HomeControllerImp>(builder:
           (controller)=> HandlingDataView(
               statusRequest: controller.statusRequest,
               widget:      Container(
@@ -29,21 +28,18 @@ class Home extends StatelessWidget {
                     children: [
                       CustomAppBar(titleappbar: "Find product", onPressedIcon: (){},onPressedSearch: (){},),
                         const  CustomCardHome( title: 'A summer suprise ', body: 'Cashback 20%',),
+                      const CustomTitleHome(title: 'Categories'),
                       const  ListCategoriesHome(),
-                     const SizedBox(height: 10,),
                       const CustomTitleHome(title: 'Product for you'),
-                      const SizedBox(height: 10),
                       const ListItemsHome(),
-
                       const CustomTitleHome(title: 'Offers'),
-                      const SizedBox(height: 10),
                       const ListItemsHome(),
 
                     ],
                   )
               )
           )
-      ),
-    );
+      )
+    ;
   }
 }
