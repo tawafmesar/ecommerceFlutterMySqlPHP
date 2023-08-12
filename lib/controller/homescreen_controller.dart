@@ -38,6 +38,13 @@ List<Widget> listPage = [
   )
 
 ];
+
+List titlebottomappbar =[
+  "Home",
+  "Settings",
+  "Profile",
+  "Favorite"
+];
   @override
   ChangPage(int i) {
 
