@@ -2,12 +2,15 @@ import 'package:ecommerce_flutter_php_mysql/core/services/services.dart';
 import 'package:get/get.dart';
 
 import '../core/class/statusrequest.dart';
+import '../core/constant/routes.dart';
 import '../core/functions/handingdatacontroller.dart';
 import '../data/datasource/remote/home_data.dart';
 
 abstract class HomeController extends GetxController {
   initialData();
   getdata();
+  goToItems(List categories , int selectedCat);
+
 }
 
 class HomeControllerImp extends HomeController{
@@ -55,6 +58,17 @@ class HomeControllerImp extends HomeController{
       }
     }
     update();
+  }
+
+  @override
+  goToItems( categories , selectedCat) {
+    Get.toNamed(AppRoute.items ,arguments: {
+      "categories" : categories,
+      "selected" : selectedCat
+
+    }
+
+    );
   }
 
 }

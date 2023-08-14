@@ -7,9 +7,9 @@ import 'package:get/get.dart';
 import '../../../core/constant/color.dart';
 import '../../../linkapi.dart';
 
-class ListCategoriesHome extends GetView<HomeControllerImp> {
-   
-  const ListCategoriesHome({Key? key}) : super(key: key);
+class ListCategoriesItems extends GetView<HomeControllerImp> {
+
+  const ListCategoriesItems({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class Categories extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        controller.goToItems(controller.categories , i!);
+        // controller.goToItems(controller.categories , i!);
       },
       child: Column(children: [
         Container(

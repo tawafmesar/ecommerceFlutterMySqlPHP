@@ -11,6 +11,7 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/auth/forgetpassword/veri
 import 'package:ecommerce_flutter_php_mysql/view/screen/auth/verifycodesignup.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/home.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/homescreen.dart';
+import 'package:ecommerce_flutter_php_mysql/view/screen/items.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/language.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
 import 'package:ecommerce_flutter_php_mysql/view/test_view.dart';
@@ -37,6 +38,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.verifyCodeSignUp , page: () => const VerifyCodeSignUp()),
 
   GetPage(name: AppRoute.homepage , page: () => const HomeScreen()),
+  GetPage(name: AppRoute.items , page: () => const Items()),
 
 ];
 
