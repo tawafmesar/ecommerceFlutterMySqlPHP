@@ -5,43 +5,62 @@ import '../core/class/statusrequest.dart';
 import '../core/constant/routes.dart';
 import '../core/functions/handingdatacontroller.dart';
 import '../data/datasource/remote/home_data.dart';
+import '../data/datasource/remote/items_data.dart';
 
 abstract class ItemsController extends GetxController {
-  initialData();
-  changeCat(int val);
-
+  intialData();
+  changeCat(int val, String catval);
+  getItems(String categoryid);
 }
 
-class ItemsControllerImp extends ItemsController{
-
+class ItemsControllerImp extends ItemsController {
   List categories = [];
-  int? selectedCat ;
+  String? catid;
+  int? selectedCat;
 
+  ItemsData testData = ItemsData(Get.find());
+
+  List data = [];
+
+  late StatusRequest statusRequest;
 
   @override
   void onInit() {
-    initialData();
+    intialData();
     super.onInit();
   }
-
-
   @override
-  initialData() {
+  intialData() {
     categories = Get.arguments['categories'];
-    selectedCat = Get.arguments['selected'];
+    selectedCat = Get.arguments['selectedcat'];
+    catid = Get.arguments['catid'];
+    getItems(catid!);
   }
 
-
   @override
-  changeCat(val) {
-
+  changeCat(val, catval) {
     selectedCat = val;
+    catid = catval;
+    getItems(catid!);
     update();
   }
 
-
-
-
-
+  @override
+  getItems(categoryid) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await testData.getData(categoryid);
+    print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        data.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
 }
-
