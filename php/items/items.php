@@ -4,8 +4,10 @@
 
 include "../connect.php";
 
+$categoryid = filterRequest("id")
 
-getAllData("itemsview", "1 = 1" );
+
+getAllData("itemsview", "categories_id = $categoryid" );
 
 
 // $alldata = array();

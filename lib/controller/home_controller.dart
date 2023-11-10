@@ -61,7 +61,7 @@ class HomeControllerImp extends HomeController{
   }
 
   @override
-  goToItems(categories, selectedCat, categoryid) {
+  goToItems(categories, selectedCat, categoryid ) {
     Get.toNamed(AppRoute.items, arguments: {
       "categories": categories,
       "selectedcat": selectedCat,

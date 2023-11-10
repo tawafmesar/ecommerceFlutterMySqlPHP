@@ -15,7 +15,7 @@ abstract class ItemsController extends GetxController {
 
 class ItemsControllerImp extends ItemsController {
   List categories = [];
-  String? catid;
+  String? catid ;
   int? selectedCat;
 
   ItemsData testData = ItemsData(Get.find());
@@ -49,7 +49,7 @@ class ItemsControllerImp extends ItemsController {
   getItems(categoryid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var response = await testData.getData(categoryid);
+    var response = await testData.getData(categoryid );
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
