@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../widget/home/customappbar.dart';
+import '../widget/customappbar.dart';
 import '../widget/home/customtitlehome.dart';
 import '../widget/home/listitemshome.dart';
 

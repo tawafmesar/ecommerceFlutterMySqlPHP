@@ -2,12 +2,15 @@ import 'package:ecommerce_flutter_php_mysql/core/services/services.dart';
 import 'package:get/get.dart';
 
 import '../core/class/statusrequest.dart';
+import '../core/constant/routes.dart';
 import '../core/functions/handingdatacontroller.dart';
 import '../data/datasource/remote/home_data.dart';
 
 abstract class HomeController extends GetxController {
   initialData();
   getdata();
+  goToItems(List categories, int selectedCat, String categoryid);
+  String? lang;
 }
 
 class HomeControllerImp extends HomeController{
@@ -28,6 +31,7 @@ class HomeControllerImp extends HomeController{
   @override
   initialData() {
 
+    lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username") ;
     id = myServices.sharedPreferences.getString("id") ;
   }
@@ -37,6 +41,7 @@ class HomeControllerImp extends HomeController{
     getdata() ;
     initialData();
     super.onInit();
+
   }
 
   @override
@@ -57,5 +62,14 @@ class HomeControllerImp extends HomeController{
     update();
   }
 
+  @override
+  goToItems(categories, selectedCat, categoryid ) {
+    Get.toNamed(AppRoute.items, arguments: {
+      "categories": categories,
+      "selectedcat": selectedCat,
+      "catid": categoryid
+    });
+
+}
 }
 

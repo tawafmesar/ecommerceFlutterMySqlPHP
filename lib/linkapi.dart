@@ -28,6 +28,8 @@ class AppLink {
   // ==================== home page ==========================//
   static const String homepage = "$server/home.php" ;
 
+  // ==================== items page ==========================//
+  static const String items = "$server/items/items.php" ;
 
 
 }
