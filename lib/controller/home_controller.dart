@@ -10,7 +10,7 @@ abstract class HomeController extends GetxController {
   initialData();
   getdata();
   goToItems(List categories, int selectedCat, String categoryid);
-
+  String? lang;
 }
 
 class HomeControllerImp extends HomeController{
@@ -31,6 +31,7 @@ class HomeControllerImp extends HomeController{
   @override
   initialData() {
 
+    lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username") ;
     id = myServices.sharedPreferences.getString("id") ;
   }
@@ -40,6 +41,7 @@ class HomeControllerImp extends HomeController{
     getdata() ;
     initialData();
     super.onInit();
+
   }
 
   @override

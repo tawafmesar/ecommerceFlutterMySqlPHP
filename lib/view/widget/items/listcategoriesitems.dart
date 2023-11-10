@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_php_mysql/controller/home_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/core/functions/translatefatabase.dart';
 import 'package:ecommerce_flutter_php_mysql/data/model/CategoriesModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -57,7 +58,9 @@ class Categories extends GetView<ItemsControllerImp> {
                             width: 3, color: AppColor.primaryColor)))
                     : null,
                 child: Text(
-                  "${categoriesModel.categoriesName}",
+                  "${translateDatabase(categoriesModel.categoriesNamaAr, categoriesModel.categoriesName)}",
+
+
                   style:
                   const TextStyle(fontSize: 20, color: AppColor.grey2),
                 ),

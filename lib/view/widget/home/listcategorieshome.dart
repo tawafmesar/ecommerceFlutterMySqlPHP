@@ -1,4 +1,5 @@
 import 'package:ecommerce_flutter_php_mysql/controller/home_controller.dart';
+import 'package:ecommerce_flutter_php_mysql/core/functions/translatefatabase.dart';
 import 'package:ecommerce_flutter_php_mysql/data/model/CategoriesModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,7 +15,7 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return      SizedBox(
-      height: 90,
+      height: 100,
       child: ListView.separated(
           separatorBuilder: (context , index) =>
           const SizedBox(width: 10,),
@@ -56,8 +57,10 @@ class Categories extends GetView<HomeControllerImp> {
             "${AppLink.imagestCategories}/${categoriesModel.categoriesImage}",
           ),
         ),
-        Text("${categoriesModel.categoriesName}",style: const TextStyle(fontSize: 13,),)
-
+        Text(
+          "${translateDatabase(categoriesModel.categoriesNamaAr, categoriesModel.categoriesName)}",
+          style: const TextStyle(fontSize: 13, color: AppColor.black),
+        )
       ],),
     );
   }

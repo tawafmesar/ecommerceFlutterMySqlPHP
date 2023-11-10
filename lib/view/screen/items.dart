@@ -22,16 +22,17 @@ class Items extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding:const EdgeInsets.all(15),
-        child: GetBuilder<ItemsControllerImp>(
-            builder: (controller) => HandlingDataView(
-                statusRequest: controller.statusRequest,
-                widget: ListView(children: [
+        child:  ListView(children: [
                   CustomAppBar(
                       titleappbar: "Find Product",
                       onPressedIcon: () {},
                       onPressedSearch: () {}),
                   const SizedBox(height: 20),
                   const ListCategoriesItems(),
+                  GetBuilder<ItemsControllerImp>(
+                      builder: (controller) => HandlingDataView(
+                      statusRequest: controller.statusRequest,
+                      widget:
                   GridView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
@@ -43,8 +44,8 @@ class Items extends StatelessWidget {
                         return CustomListItems(
                             itemsModel:
                             ItemsModel.fromJson(controller.data[index]));
-                      })
-                ]))),
+                      })))
+                ]),
       ),
     );
   }
