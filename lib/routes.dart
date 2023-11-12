@@ -14,6 +14,7 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/homescreen.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/items.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/language.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
+import 'package:ecommerce_flutter_php_mysql/view/screen/productdetails.dart';
 import 'package:ecommerce_flutter_php_mysql/view/test_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,13 +22,14 @@ import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
 
-  // GetPage(name: "/", page: () => const Language() , middlewares: [
-  //   MyMiddleWare()
-  // ]),
+  GetPage(name: "/", page: () => const ProductDetails() , middlewares: [
+    MyMiddleWare()
+  ]),
 
- GetPage(name: "/" , page: () =>  Language()),
+ //GetPage(name: "/" , page: () =>  ProductDetails()),
 
   GetPage(name: AppRoute.login , page: () => const Login()),
+
   GetPage(name: AppRoute.onBoarding , page: () => const onBoarding()),
   GetPage(name: AppRoute.signUp , page: () => const SignUp()),
   GetPage(name: AppRoute.forgetPassword , page: () => const ForgetPassword()),
@@ -39,6 +41,7 @@ List<GetPage<dynamic>>? routes = [
 
   GetPage(name: AppRoute.homepage , page: () => const HomeScreen()),
   GetPage(name: AppRoute.items , page: () => const Items()),
+  GetPage(name: AppRoute.productdetails , page: () => const ProductDetails()),
 
 ];
 

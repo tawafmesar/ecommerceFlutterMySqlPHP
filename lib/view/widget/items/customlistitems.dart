@@ -1,18 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_flutter_php_mysql/controller/items_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/core/functions/translatefatabase.dart';
 import 'package:ecommerce_flutter_php_mysql/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
 import '../../../linkapi.dart';
 
-class CustomListItems extends StatelessWidget {
+class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
   const CustomListItems({Key? key, required this.itemsModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: (){
+        controller.goToPageProductDetails(itemsModel);
+      },
         child: Card(
           child: Padding(
             padding: const EdgeInsets.all(10),

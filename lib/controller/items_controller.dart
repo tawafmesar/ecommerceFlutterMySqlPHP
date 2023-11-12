@@ -6,11 +6,13 @@ import '../core/constant/routes.dart';
 import '../core/functions/handingdatacontroller.dart';
 import '../data/datasource/remote/home_data.dart';
 import '../data/datasource/remote/items_data.dart';
+import '../data/model/itemsmodel.dart';
 
 abstract class ItemsController extends GetxController {
   intialData();
   changeCat(int val, String catval);
   getItems(String categoryid);
+  goToPageProductDetails(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -62,5 +64,10 @@ class ItemsControllerImp extends ItemsController {
       // End
     }
     update();
+  }
+
+  @override
+  goToPageProductDetails(itemsModel) {
+    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
 }
