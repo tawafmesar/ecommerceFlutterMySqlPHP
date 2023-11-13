@@ -18,6 +18,7 @@ class ProductDetails extends StatelessWidget {
         child: ListView(
           children: [
             Stack(
+              clipBehavior: Clip.none,
               children: [
                 Container(
                   height: 200,
@@ -26,13 +27,25 @@ class ProductDetails extends StatelessWidget {
                     borderRadius: BorderRadius.vertical(bottom: Radius.circular(35))
                   ),
                 ),
-                  CachedNetworkImage(imageUrl: AppLink.imagestItems + "/" + controller.itemsModel.itemsImage!)
+                  Positioned(
+                    top:50.0,
+                    left: 20,
+                    right: 20,
+
+                    child: Hero(
+                        tag: "${controller.itemsModel.itemsId}",
+                      child: CachedNetworkImage(
+                        imageUrl: AppLink.imagestItems + "/" + controller.itemsModel.itemsImage!,
+                      height: 250,
+
+                      ),
+                    ),
+                  )
               ],
             )
           ],
         ),
       ),
-
     );
   }
 }
