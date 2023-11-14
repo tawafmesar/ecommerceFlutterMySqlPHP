@@ -10,7 +10,8 @@ import '../../../linkapi.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
-  const CustomListItems({Key? key, required this.itemsModel}) : super(key: key);
+  final bool active;
+  const CustomListItems( {Key? key, required this.itemsModel,required this.active,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       IconButton(
                           onPressed: () {},
                           icon: Icon(
-                            Icons.favorite,
+                          active ?   Icons.favorite : Icons.favorite_border_outlined  ,
                             color: AppColor.primaryColor,
                           ))
                     ],
