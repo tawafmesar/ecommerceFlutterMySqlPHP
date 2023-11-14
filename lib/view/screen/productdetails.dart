@@ -6,6 +6,10 @@ import 'package:ecommerce_flutter_php_mysql/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/productdetails/priceandcount.dart';
+import '../widget/productdetails/subitemslist.dart';
+import '../widget/productdetails/toppageproductdetails.dart';
+
 class ProductDetails extends StatelessWidget {
 
   const ProductDetails({super.key});
@@ -14,35 +18,53 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp());
     return Scaffold(
+      bottomNavigationBar: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          height: 40,
+          child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              color: AppColor.secondColor,
+              onPressed: () {},
+              child: const Text(
+                "Add To Cart",
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold),
+              ))),
       body: Container(
         child: ListView(
           children: [
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Container(
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: AppColor.primaryColor,
-                    borderRadius: BorderRadius.vertical(bottom: Radius.circular(35))
-                  ),
-                ),
-                  Positioned(
-                    top:50.0,
-                    left: 20,
-                    right: 20,
+            TopProductPageDetails(),
+            const SizedBox(
+              height: 100,
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text("${controller.itemsModel.itemsName}",
+                    style: Theme.of(context).textTheme.headline1!.copyWith(
+                      color: AppColor.fourthColor,
+                    )),
+                const SizedBox(height: 10),
+                PriceAndCountItems(
+                    onAdd: () {}, onRemove: () {}, price: "200.0", count: "2"),
+                const SizedBox(height: 10),
 
-                    child: Hero(
-                        tag: "${controller.itemsModel.itemsId}",
-                      child: CachedNetworkImage(
-                        imageUrl: AppLink.imagestItems + "/" + controller.itemsModel.itemsImage!,
-                      height: 250,
+                Text(
+                    "${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc}",
+                    style: Theme.of(context).textTheme.bodyText1),
+                const SizedBox(height: 10),
+                Text("Color",
+                    style: Theme.of(context).textTheme.headline1!.copyWith(
+                      color: AppColor.fourthColor,
+                    )),
+                const SizedBox(height: 10),
 
-                      ),
-                    ),
-                  )
-              ],
-            )
+              ]),
+            ),
+            const SubitemsList(),
+
           ],
         ),
       ),
