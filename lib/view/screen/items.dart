@@ -8,7 +8,6 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../controller/items_controller.dart';
 import '../../data/model/itemsmodel.dart';
-import '../../linkapi.dart';
 import '../widget/customappbar.dart';
 import '../widget/items/customlistitems.dart';
 
@@ -46,7 +45,7 @@ class Items extends StatelessWidget {
                             itemsModel:
                             ItemsModel.fromJson(controller.data[index]));
                       })))
-                ]),
+                ] ),
       ),
     );
   }
