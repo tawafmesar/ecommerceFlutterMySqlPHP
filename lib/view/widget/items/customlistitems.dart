@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_flutter_php_mysql/controller/favorite_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/controller/items_controller.dart';
 import 'package:ecommerce_flutter_php_mysql/core/functions/translatefatabase.dart';
 import 'package:ecommerce_flutter_php_mysql/data/model/itemsmodel.dart';
@@ -69,15 +70,28 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "sans")),
-                      IconButton(
-                          onPressed: () {},
+                      GetBuilder<FavoriteController>(builder: (controller) =>   IconButton(
+                          onPressed: () {
+                            if (controller.isFavorite[itemsModel.itemsId] == "1"){
+
+                              controller.setFavorite(itemsModel.itemsId, "0");
+
+                            }else{
+                              controller.setFavorite(itemsModel.itemsId, "1");
+
+
+                            }
+
+                          },
                           icon: Icon(
-                            itemsModel.favorite == "1"
+                            controller.isFavorite[itemsModel.itemsId] == "1"
                                 ? Icons.favorite
                                 : Icons.favorite_border_outlined,
                             color: AppColor.primaryColor,
                           )
                       )
+                      )
+
                     ],
                   )
                 ]),
