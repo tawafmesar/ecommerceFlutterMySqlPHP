@@ -40,8 +40,8 @@ class Items extends StatelessWidget {
                       const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2, childAspectRatio: 0.7),
                       itemBuilder: (BuildContext context, index) {
+
                         return CustomListItems(
-                          active: false,
                             itemsModel:
                             ItemsModel.fromJson(controller.data[index]));
                       })))
