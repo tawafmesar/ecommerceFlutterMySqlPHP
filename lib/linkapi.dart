@@ -28,4 +28,10 @@ class AppLink {
   static const String items = "$server/items/items.php" ;
 
 
+  // ==================== items page ==========================//
+  static const String favoriteRemove = "$server/favorite/remove.php" ;
+  static const String favoriteAdd = "$server/favorite/add.php" ;
+
+
+
 }
