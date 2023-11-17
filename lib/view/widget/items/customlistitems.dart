@@ -75,9 +75,11 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                             if (controller.isFavorite[itemsModel.itemsId] == "1"){
 
                               controller.setFavorite(itemsModel.itemsId, "0");
+                              controller.removeFavorite(itemsModel.itemsId!);
 
                             }else{
                               controller.setFavorite(itemsModel.itemsId, "1");
+                              controller.addFavorite(itemsModel.itemsId!);
 
 
                             }
