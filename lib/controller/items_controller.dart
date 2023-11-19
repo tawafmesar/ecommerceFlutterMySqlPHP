@@ -6,11 +6,13 @@ import '../core/constant/routes.dart';
 import '../core/functions/handingdatacontroller.dart';
 import '../data/datasource/remote/home_data.dart';
 import '../data/datasource/remote/items_data.dart';
+import '../data/model/itemsmodel.dart';
 
 abstract class ItemsController extends GetxController {
   intialData();
   changeCat(int val, String catval);
   getItems(String categoryid);
+  goToPageProductDetails(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -23,6 +25,8 @@ class ItemsControllerImp extends ItemsController {
   List data = [];
 
   late StatusRequest statusRequest;
+
+  MyServices myServices = Get.find();
 
   @override
   void onInit() {
@@ -49,7 +53,7 @@ class ItemsControllerImp extends ItemsController {
   getItems(categoryid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var response = await testData.getData(categoryid );
+    var response = await testData.getData(categoryid , myServices.sharedPreferences.getString("id")!);
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -62,5 +66,10 @@ class ItemsControllerImp extends ItemsController {
       // End
     }
     update();
+  }
+
+  @override
+  goToPageProductDetails(itemsModel) {
+    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsModel});
   }
 }
