@@ -33,5 +33,9 @@ class AppLink {
   static const String favoriteAdd = "$server/favorite/add.php" ;
 
 
+  static const String favoriteView = "$server/favorite/view.php" ;
+
+  static const String deletefromfavroite = "$server/favorite/deletefromfavroite.php" ;
+
 
 }
