@@ -27,7 +27,11 @@ class Items extends StatelessWidget {
                   CustomAppBar(
                       titleappbar: "Find Product",
                       onPressedIcon: () {},
-                      onPressedSearch: () {}),
+                      onPressedSearch: () {},
+                      onPressedIconFavorite: () {
+
+
+                      },),
                   const SizedBox(height: 20),
                   const ListCategoriesItems(),
                   GetBuilder<ItemsControllerImp>(

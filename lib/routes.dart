@@ -13,6 +13,7 @@ import 'package:ecommerce_flutter_php_mysql/view/screen/home.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/homescreen.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/items.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/language.dart';
+import 'package:ecommerce_flutter_php_mysql/view/screen/myfavorite.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/onboarding.dart';
 import 'package:ecommerce_flutter_php_mysql/view/screen/productdetails.dart';
 import 'package:ecommerce_flutter_php_mysql/view/test_view.dart';
@@ -43,7 +44,11 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.items , page: () => const Items()),
   GetPage(name: AppRoute.productdetails , page: () => const ProductDetails()),
 
+  GetPage(name: AppRoute.myfavroite , page: () => const MyFavorite()),
+
 ];
+
+
 
 // Map<String, Widget Function(BuildContext)> routes = {
 //  AppRoute.login: (context) => ,
